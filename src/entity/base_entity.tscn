@@ -1,21 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0gnhue7i3ie"]
+[gd_scene format=3 uid="uid://b0gnhue7i3ie"]
 
-[ext_resource type="Script" uid="uid://d0am4f4br50yt" path="res://src/entity/entity.gd" id="1_ie73g"]
-[ext_resource type="Script" uid="uid://e8ernwmrsjii" path="res://src/entity/state_machine.gd" id="2_b5vo3"]
+[ext_resource type="Script" uid="uid://33shlfglkrnl" path="res://src/entity/base_entity.gd" id="1_ie73g"]
+[ext_resource type="Script" uid="uid://dkq8yykm36001" path="res://src/stateMachines/movement_state_machine.gd" id="3_ie73g"]
 [ext_resource type="Script" uid="uid://i7ldpmroh7yf" path="res://src/entity/animation_controller.gd" id="3_mwpf7"]
+[ext_resource type="Script" uid="uid://b44dqdrqhkawi" path="res://src/stateMachines/vitality_state_machine.gd" id="4_b5vo3"]
+[ext_resource type="Script" uid="uid://cjcq3f7yg7ab1" path="res://src/entity/melee_range.gd" id="5_mwpf7"]
 
-[node name="BaseEntity" type="CharacterBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_b5vo3"]
+
+[node name="BaseEntity" type="CharacterBody3D" unique_id=558103743]
 script = ExtResource("1_ie73g")
-metadata/_custom_type_script = "uid://d0am4f4br50yt"
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_b5vo3")
-metadata/_custom_type_script = "uid://e8ernwmrsjii"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=205919405]
 
-[node name="AnimationController" type="Node" parent="."]
+[node name="AnimationController" type="Node" parent="." unique_id=563838369]
 script = ExtResource("3_mwpf7")
 metadata/_custom_type_script = "uid://i7ldpmroh7yf"
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1464787156]
 
-[node name="InvincibilityTimer" type="Timer" parent="."]
+[node name="VitalityStateMachine" type="Node" parent="." unique_id=735730091]
+script = ExtResource("4_b5vo3")
+metadata/_custom_type_script = "uid://b44dqdrqhkawi"
+
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1649412257]
+script = ExtResource("3_ie73g")
+metadata/_custom_type_script = "uid://dkq8yykm36001"
+
+[node name="MeleeRange" type="Area3D" parent="." unique_id=1072610884]
+script = ExtResource("5_mwpf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeRange" unique_id=1666211237]
+shape = SubResource("SphereShape3D_b5vo3")

@@ -4,13 +4,13 @@ var state_name: String
 var entity: Entity
 
 func enter() -> void:
-    pass
+	pass
 
 func exit() -> void:
-    pass
+	pass
 
-func update(delta: float) -> void:
-    pass
+func update(_delta: float) -> void:
+	pass
 
-func physics_update(delta: float) -> void:
-    pass
+func physics_update(_delta: float) -> void:
+	pass

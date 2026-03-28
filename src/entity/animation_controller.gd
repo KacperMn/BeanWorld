@@ -17,8 +17,8 @@ func _ready() -> void:
 	anim_tree = get_owner().get_node("AnimationTree")
 
 func _connect_state_machine() -> void:
-	var sm: StateMachine = get_parent().state_machine
-	sm.state_changed.connect(_on_state_changed)
+	var movement_sm: MovementStateMachine = get_parent().movement_sm
+	movement_sm.state_changed.connect(_on_state_changed)
 
 
 func _on_state_changed(new_state: State) -> void:

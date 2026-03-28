@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bv85nxrw3acih"]
+
+[ext_resource type="PackedScene" uid="uid://b0gnhue7i3ie" path="res://src/entity/base_entity.tscn" id="1_ihuff"]
+[ext_resource type="Script" uid="uid://cd5jn658agumj" path="res://src/entity/characters/bean/bean.gd" id="2_d5x0k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ihuff"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d5x0k"]
+radius = 5.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ihuff"]
+
+[node name="Bean" unique_id=558103743 instance=ExtResource("1_ihuff")]
+script = ExtResource("2_d5x0k")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=205919405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0002835, 0)
+shape = SubResource("CapsuleShape3D_ihuff")
+
+[node name="MeleeRange" parent="." index="5" unique_id=1072610884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" parent="MeleeRange" index="0" unique_id=1666211237]
+shape = SubResource("SphereShape3D_d5x0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="6" unique_id=909119549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ihuff")
+
+[node name="Timer" type="Timer" parent="." index="7" unique_id=339957967]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
