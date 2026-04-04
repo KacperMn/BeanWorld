@@ -1,10 +1,12 @@
 class_name MeleeRange extends Area3D
 
+@export var range_radius: float = 5.0
+
 @onready var self_entity: Entity = get_parent()
 @onready var range_shape: CollisionShape3D = $CollisionShape3D
 
 func _ready() -> void:
-	range_shape.shape.radius = self_entity.entity_radius + 5.0
+	range_shape.shape.radius = self_entity.entity_radius + range_radius
 
 func get_entities_in_range() -> Array:
 	var entities_in_range: Array = []

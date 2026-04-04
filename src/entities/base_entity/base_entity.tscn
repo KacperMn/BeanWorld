@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://b0gnhue7i3ie"]
 
 [ext_resource type="Script" uid="uid://33shlfglkrnl" path="res://src/entities/base_entity/base_entity.gd" id="1_peqsn"]
+[ext_resource type="Script" uid="uid://iaw7o7uvxmx8" path="res://src/entities/base_entity/movement_sm/movement_provider.gd" id="5_67h2s"]
 [ext_resource type="Script" uid="uid://cjcq3f7yg7ab1" path="res://src/entities/base_entity/melee_range.gd" id="5_fqi46"]
 [ext_resource type="Script" uid="uid://dk6umxry61ua0" path="res://src/entities/base_entity/vitality_sm/vitality_sm.gd" id="5_whtxw"]
-[ext_resource type="Script" uid="uid://iaw7o7uvxmx8" path="res://src/entities/base_entity/movement_sm/movement_provider.gd" id="6_b070c"]
 [ext_resource type="PackedScene" uid="uid://cyjsx53nx43pe" path="res://src/entities/base_entity/entity_hud.tscn" id="6_fqi46"]
-[ext_resource type="Script" uid="uid://bwb35a4l4k2v" path="res://src/entities/base_entity/vitality_sm/health_provider.gd" id="7_m5ska"]
-[ext_resource type="Script" uid="uid://c0dyo7fjsctwc" path="res://src/entities/base_entity/vitality_sm/vitality_states/vitality_state.gd" id="7_vi1d7"]
-[ext_resource type="Script" uid="uid://dhxq10usne6l3" path="res://src/entities/base_entity/vitality_sm/vitality_states/alive_state.gd" id="8_a7fj4"]
-[ext_resource type="Script" uid="uid://b3c2i26xtpuj" path="res://src/entities/base_entity/vitality_sm/vitality_states/hurt_state.gd" id="9_67h2s"]
-[ext_resource type="Script" uid="uid://c80oi8rc11u84" path="res://src/entities/base_entity/vitality_sm/vitality_states/dead_state.gd" id="10_aybvu"]
+[ext_resource type="Script" uid="uid://bwb35a4l4k2v" path="res://src/entities/base_entity/vitality_sm/health_provider.gd" id="9_a7fj4"]
+[ext_resource type="Script" uid="uid://c0dyo7fjsctwc" path="res://src/entities/base_entity/vitality_sm/vitality_states/vitality_state.gd" id="10_67h2s"]
+[ext_resource type="Script" uid="uid://dhxq10usne6l3" path="res://src/entities/base_entity/vitality_sm/vitality_states/alive_state.gd" id="11_aybvu"]
 [ext_resource type="Script" uid="uid://bd44y742cvm6y" path="res://src/entities/base_entity/movement_sm/movement_sm.gd" id="11_k5xkk"]
+[ext_resource type="Script" uid="uid://b3c2i26xtpuj" path="res://src/entities/base_entity/vitality_sm/vitality_states/hurt_state.gd" id="12_k5xkk"]
+[ext_resource type="Script" uid="uid://c80oi8rc11u84" path="res://src/entities/base_entity/vitality_sm/vitality_states/dead_state.gd" id="13_4xpgr"]
 [ext_resource type="Script" uid="uid://d4jiymxvworue" path="res://src/entities/base_entity/movement_sm/movement_states/idle_state.gd" id="13_aybvu"]
 [ext_resource type="Script" uid="uid://c7ug1d16ridya" path="res://src/entities/base_entity/movement_sm/movement_states/walk_state.gd" id="14_k5xkk"]
 [ext_resource type="Script" uid="uid://byevjdwcyaouh" path="res://src/entities/base_entity/movement_sm/movement_states/fall_state.gd" id="15_4xpgr"]
@@ -19,37 +19,37 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_peqsn"]
 
-[sub_resource type="Resource" id="Resource_4xpgr"]
-script = ExtResource("7_m5ska")
-metadata/_custom_type_script = "uid://bwb35a4l4k2v"
-
-[sub_resource type="Resource" id="Resource_lthkf"]
-script = ExtResource("8_a7fj4")
-metadata/_custom_type_script = "uid://dhxq10usne6l3"
-
-[sub_resource type="Resource" id="Resource_bsgsf"]
-script = ExtResource("9_67h2s")
-metadata/_custom_type_script = "uid://b3c2i26xtpuj"
-
-[sub_resource type="Resource" id="Resource_qmic0"]
-script = ExtResource("10_aybvu")
-metadata/_custom_type_script = "uid://c80oi8rc11u84"
-
-[sub_resource type="Resource" id="Resource_vi1d7"]
-script = ExtResource("6_b070c")
+[sub_resource type="Resource" id="Resource_aybvu"]
+script = ExtResource("5_67h2s")
 metadata/_custom_type_script = "uid://iaw7o7uvxmx8"
 
-[sub_resource type="Resource" id="Resource_xh4ie"]
+[sub_resource type="Resource" id="Resource_b070c"]
 script = ExtResource("13_aybvu")
 metadata/_custom_type_script = "uid://d4jiymxvworue"
 
-[sub_resource type="Resource" id="Resource_r03h0"]
+[sub_resource type="Resource" id="Resource_m5ska"]
 script = ExtResource("14_k5xkk")
 metadata/_custom_type_script = "uid://c7ug1d16ridya"
 
-[sub_resource type="Resource" id="Resource_ittd8"]
+[sub_resource type="Resource" id="Resource_dp46d"]
 script = ExtResource("15_4xpgr")
 metadata/_custom_type_script = "uid://byevjdwcyaouh"
+
+[sub_resource type="Resource" id="Resource_lthkf"]
+script = ExtResource("9_a7fj4")
+metadata/_custom_type_script = "uid://bwb35a4l4k2v"
+
+[sub_resource type="Resource" id="Resource_bsgsf"]
+script = ExtResource("11_aybvu")
+metadata/_custom_type_script = "uid://dhxq10usne6l3"
+
+[sub_resource type="Resource" id="Resource_qmic0"]
+script = ExtResource("12_k5xkk")
+metadata/_custom_type_script = "uid://b3c2i26xtpuj"
+
+[sub_resource type="Resource" id="Resource_xh4ie"]
+script = ExtResource("13_4xpgr")
+metadata/_custom_type_script = "uid://c80oi8rc11u84"
 
 [node name="BaseEntity" type="CharacterBody3D" unique_id=558103743]
 collision_mask = 3
@@ -66,16 +66,16 @@ shape = SubResource("CylinderShape3D_peqsn")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1464787156]
 
-[node name="VitalitySM" type="Node" parent="." unique_id=2046704608]
-script = ExtResource("5_whtxw")
-health_provider = SubResource("Resource_4xpgr")
-vitality_states = Array[ExtResource("7_vi1d7")]([SubResource("Resource_lthkf"), SubResource("Resource_bsgsf"), SubResource("Resource_qmic0")])
-metadata/_custom_type_script = "uid://dk6umxry61ua0"
+[node name="EntityHUD" parent="." unique_id=624023189 instance=ExtResource("6_fqi46")]
 
-[node name="MovementSM" type="Node" parent="." unique_id=924883678]
+[node name="MovementSM" type="Node" parent="." unique_id=1883015031]
 script = ExtResource("11_k5xkk")
-movement_provider = SubResource("Resource_vi1d7")
-movement_states = Array[Object]([SubResource("Resource_xh4ie"), SubResource("Resource_r03h0"), SubResource("Resource_ittd8")])
+movement_provider = SubResource("Resource_aybvu")
+movement_states = Array[Object]([SubResource("Resource_b070c"), SubResource("Resource_m5ska"), SubResource("Resource_dp46d")])
 metadata/_custom_type_script = "uid://bd44y742cvm6y"
 
-[node name="EntityHUD" parent="." unique_id=624023189 instance=ExtResource("6_fqi46")]
+[node name="VitalitySM" type="Node" parent="." unique_id=209048677]
+script = ExtResource("5_whtxw")
+health_provider = SubResource("Resource_lthkf")
+vitality_states = Array[ExtResource("10_67h2s")]([SubResource("Resource_bsgsf"), SubResource("Resource_qmic0"), SubResource("Resource_xh4ie")])
+metadata/_custom_type_script = "uid://dk6umxry61ua0"

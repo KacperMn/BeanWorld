@@ -11,10 +11,14 @@
 [ext_resource type="Script" uid="uid://psgkeiby4jcu" path="res://src/entities/characters/player/action_logic/actions/action.gd" id="9_gp8t3"]
 [ext_resource type="Script" uid="uid://d4jiymxvworue" path="res://src/entities/base_entity/movement_sm/movement_states/idle_state.gd" id="10_gwqw2"]
 [ext_resource type="Script" uid="uid://yw56g3cmrhjy" path="res://src/entities/characters/player/action_logic/actions/melee_attack.gd" id="10_m6xvu"]
+[ext_resource type="Script" uid="uid://c0dyo7fjsctwc" path="res://src/entities/base_entity/vitality_sm/vitality_states/vitality_state.gd" id="10_rs7dc"]
+[ext_resource type="Script" uid="uid://dhxq10usne6l3" path="res://src/entities/base_entity/vitality_sm/vitality_states/alive_state.gd" id="11_4cug5"]
 [ext_resource type="Script" uid="uid://c7ug1d16ridya" path="res://src/entities/base_entity/movement_sm/movement_states/walk_state.gd" id="11_rlb4i"]
 [ext_resource type="Script" uid="uid://byevjdwcyaouh" path="res://src/entities/base_entity/movement_sm/movement_states/fall_state.gd" id="12_4mnim"]
+[ext_resource type="Script" uid="uid://b3c2i26xtpuj" path="res://src/entities/base_entity/vitality_sm/vitality_states/hurt_state.gd" id="12_5oa8t"]
 [ext_resource type="Script" uid="uid://cc7gpx2obeubt" path="res://src/entities/base_entity/activity_sm/activity_sm.gd" id="13_gixi1"]
 [ext_resource type="Script" uid="uid://baltijg1kf4l7" path="res://src/entities/base_entity/movement_sm/movement_states/sprint_state.gd" id="13_jhurq"]
+[ext_resource type="Script" uid="uid://c80oi8rc11u84" path="res://src/entities/base_entity/vitality_sm/vitality_states/dead_state.gd" id="13_x87i4"]
 [ext_resource type="Script" uid="uid://xqc1152y2l4m" path="res://src/entities/characters/player/player_activity_provider.gd" id="14_ay81g"]
 [ext_resource type="Script" uid="uid://bhm15k7m3anxi" path="res://src/entities/base_entity/movement_sm/movement_states/jump_state.gd" id="14_s1rdj"]
 [ext_resource type="Script" uid="uid://crg11qqr8tdex" path="res://src/entities/base_entity/activity_sm/activity_states/activity_state.gd" id="15_0p8vh"]
@@ -106,18 +110,6 @@ bind/16/pose = Transform3D(-0.000741421, 1.18831, 1.4942, 0.0249444, -1.0176, 1.
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m1smu"]
 radius = 0.41845703
-
-[sub_resource type="Resource" id="Resource_goshs"]
-script = ExtResource("5_hdrvx")
-metadata/_custom_type_script = "uid://cbd8nk26wor8o"
-
-[sub_resource type="Resource" id="Resource_qpsop"]
-script = ExtResource("6_dtnpb")
-metadata/_custom_type_script = "uid://xpa8vyal015t"
-
-[sub_resource type="Resource" id="Resource_xt3vi"]
-script = ExtResource("7_5kjsx")
-metadata/_custom_type_script = "uid://d1beao0f5jn0c"
 
 [sub_resource type="Animation" id="Animation_awiua"]
 resource_name = "Walk_002"
@@ -228,33 +220,57 @@ _data = {
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5c1al"]
 
-[sub_resource type="Resource" id="Resource_27vw0"]
+[sub_resource type="Resource" id="Resource_1rrhj"]
 script = ExtResource("7_ay81g")
 metadata/_custom_type_script = "uid://6afb53eyptj0"
 
-[sub_resource type="Resource" id="Resource_xh4ie"]
+[sub_resource type="Resource" id="Resource_ay81g"]
 script = ExtResource("10_gwqw2")
 metadata/_custom_type_script = "uid://d4jiymxvworue"
 
-[sub_resource type="Resource" id="Resource_r03h0"]
+[sub_resource type="Resource" id="Resource_0p8vh"]
 script = ExtResource("11_rlb4i")
 metadata/_custom_type_script = "uid://c7ug1d16ridya"
 
-[sub_resource type="Resource" id="Resource_ittd8"]
+[sub_resource type="Resource" id="Resource_rs7dc"]
 script = ExtResource("12_4mnim")
 metadata/_custom_type_script = "uid://byevjdwcyaouh"
 
-[sub_resource type="Resource" id="Resource_gixi1"]
-script = ExtResource("13_jhurq")
-metadata/_custom_type_script = "uid://baltijg1kf4l7"
-
-[sub_resource type="Resource" id="Resource_ay81g"]
+[sub_resource type="Resource" id="Resource_4cug5"]
 script = ExtResource("14_s1rdj")
 metadata/_custom_type_script = "uid://bhm15k7m3anxi"
 
-[sub_resource type="Resource" id="Resource_0p8vh"]
+[sub_resource type="Resource" id="Resource_t1g0b"]
+script = ExtResource("13_jhurq")
+metadata/_custom_type_script = "uid://baltijg1kf4l7"
+
+[sub_resource type="Resource" id="Resource_lvpxj"]
 script = ExtResource("15_g0cqx")
 metadata/_custom_type_script = "uid://dukuhcdy2ymh7"
+
+[sub_resource type="Resource" id="Resource_16pwt"]
+script = ExtResource("11_4cug5")
+metadata/_custom_type_script = "uid://dhxq10usne6l3"
+
+[sub_resource type="Resource" id="Resource_sgbd4"]
+script = ExtResource("12_5oa8t")
+metadata/_custom_type_script = "uid://b3c2i26xtpuj"
+
+[sub_resource type="Resource" id="Resource_5tisy"]
+script = ExtResource("13_x87i4")
+metadata/_custom_type_script = "uid://c80oi8rc11u84"
+
+[sub_resource type="Resource" id="Resource_goshs"]
+script = ExtResource("5_hdrvx")
+metadata/_custom_type_script = "uid://cbd8nk26wor8o"
+
+[sub_resource type="Resource" id="Resource_qpsop"]
+script = ExtResource("6_dtnpb")
+metadata/_custom_type_script = "uid://xpa8vyal015t"
+
+[sub_resource type="Resource" id="Resource_xt3vi"]
+script = ExtResource("7_5kjsx")
+metadata/_custom_type_script = "uid://d1beao0f5jn0c"
 
 [sub_resource type="Resource" id="Resource_er5gi"]
 script = ExtResource("14_ay81g")
@@ -413,27 +429,30 @@ shape = SubResource("CapsuleShape3D_m1smu")
 [node name="MeleeRange" parent="." index="2" unique_id=1072610884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="CameraController" parent="." index="3" unique_id=1313310453 instance=ExtResource("4_42nfu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
-exploration_mode = SubResource("Resource_goshs")
-combat_mode = SubResource("Resource_qpsop")
-building_mode = SubResource("Resource_xt3vi")
-
-[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="4" unique_id=1370838134]
+[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="3" unique_id=1370838134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
 remote_path = NodePath("../CameraController")
 update_rotation = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1915612719]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1915612719]
 libraries/ = SubResource("AnimationLibrary_lhyyp")
 
-[node name="AnimationTree" parent="." index="6" unique_id=1464787156]
+[node name="AnimationTree" parent="." index="5" unique_id=1464787156]
 tree_root = SubResource("AnimationNodeStateMachine_5c1al")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="MovementSM" parent="." index="8" unique_id=924883678]
-movement_provider = SubResource("Resource_27vw0")
-movement_states = Array[Object]([SubResource("Resource_xh4ie"), SubResource("Resource_r03h0"), SubResource("Resource_ittd8"), SubResource("Resource_gixi1"), SubResource("Resource_ay81g"), SubResource("Resource_0p8vh")])
+[node name="MovementSM" parent="." index="7" unique_id=1883015031]
+movement_provider = SubResource("Resource_1rrhj")
+movement_states = Array[Object]([SubResource("Resource_ay81g"), SubResource("Resource_0p8vh"), SubResource("Resource_rs7dc"), SubResource("Resource_4cug5"), SubResource("Resource_t1g0b"), SubResource("Resource_lvpxj")])
+
+[node name="VitalitySM" parent="." index="8" unique_id=209048677]
+vitality_states = Array[ExtResource("10_rs7dc")]([SubResource("Resource_16pwt"), SubResource("Resource_sgbd4"), SubResource("Resource_5tisy")])
+
+[node name="CameraController" parent="." index="9" unique_id=1313310453 instance=ExtResource("4_42nfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
+exploration_mode = SubResource("Resource_goshs")
+combat_mode = SubResource("Resource_qpsop")
+building_mode = SubResource("Resource_xt3vi")
 
 [node name="ActivitySM" type="Node" parent="." index="10" unique_id=1788229031]
 script = ExtResource("13_gixi1")

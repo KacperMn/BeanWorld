@@ -2,12 +2,13 @@ class_name StateMachine extends Node
 
 signal state_changed(new_state: State)
 
-var entity: Entity = get_parent() as Entity
-var provider: Provider = null
-var states: Array = []
+var entity: Entity
+var provider: Provider
+var states: Array
 var current_state: State
 
-func _ready() -> void:
+func setup() -> void:
+	entity = get_parent()
 	if states.size() == 0:
 		push_error("StateMachine: no states defined")
 		return
@@ -19,6 +20,7 @@ func _ready() -> void:
 	for state in states:
 		register(state)
 	current_state.enter()
+	
 
 func get_state(state_name: String) -> State:
 	for state in states:

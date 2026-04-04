@@ -3,9 +3,6 @@ class_name Bean extends Entity
 @onready var timer = $Timer
 var target_location
 
-func _ready() -> void:
-	super ()
-
 func _on_timer_timeout() -> void:
 	print("Timer timeout, picking new target location")
 	var range := 5.0

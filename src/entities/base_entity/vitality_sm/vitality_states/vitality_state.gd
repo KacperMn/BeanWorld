@@ -1,20 +1,26 @@
 class_name VitalityState extends State
 
-func handle(_delta: float) -> void:
-    pass
+func enter() -> void:
+    provider.health_changed.connect(_on_health_changed)
+    provider.died.connect(_on_died)
+    provider.revived.connect(_on_revived)
+    on_enter()
 
-func physics_update(_delta: float) -> void:
-    _handle_debug_input()
-    handle(_delta)
+func exit() -> void:
+    provider.health_changed.disconnect(_on_health_changed)
+    provider.died.disconnect(_on_died)
+    provider.revived.disconnect(_on_revived)
+    on_exit()
 
-func on_hurt(amount: float) -> void:
-    provider.hurt(amount)
+# hooks for subclasses
+func on_enter() -> void: pass
+func on_exit() -> void: pass
+func handle(_delta: float) -> void: pass
 
-func on_heal(amount: float) -> void:
-    provider.heal(amount)
+func physics_update(delta: float) -> void:
+    handle(delta)
 
-func _handle_debug_input() -> void:
-    if Input.is_action_just_pressed("kill"):
-        entity.health_provider.hurt(entity.health_provider.health)
-    if Input.is_action_just_pressed("revive"):
-        entity.health_provider.revive()
+# signal handlers — override in subclasses
+func _on_health_changed(_old: float, _new: float) -> void: pass
+func _on_died() -> void: pass
+func _on_revived() -> void: pass

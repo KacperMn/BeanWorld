@@ -17,6 +17,8 @@ var speed: float
 
 func _ready() -> void:
 	speed = base_speed
+	movement_sm.setup()
+	vitality_sm.setup()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -24,10 +26,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func hurt(amount: float) -> void:
-	vitality_sm.current_state.on_hurt(amount)
+	vitality_sm.hurt(amount)
 
 func heal(amount: float) -> void:
-	vitality_sm.current_state.on_heal(amount)
+	vitality_sm.heal(amount)
 
 var entity_height: float:
 	get: return shape.height if shape else 2.0
