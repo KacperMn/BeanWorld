@@ -7,9 +7,6 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ihuff"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_d5x0k"]
-radius = 5.0
-
 [sub_resource type="Resource" id="Resource_247a2"]
 script = ExtResource("3_gitlo")
 metadata/_custom_type_script = "uid://bsii6mwdjwkv0"
@@ -27,16 +24,10 @@ script = ExtResource("2_gdo3s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0002835, 0)
 shape = SubResource("CapsuleShape3D_ihuff")
 
-[node name="MeleeRange" parent="." index="1" unique_id=1072610884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="CollisionShape3D" parent="MeleeRange" index="0" unique_id=1666211237]
-shape = SubResource("SphereShape3D_d5x0k")
-
-[node name="MovementSM" parent="." index="4" unique_id=1883015031]
+[node name="MovementSM" parent="." index="3" unique_id=1883015031]
 movement_provider = SubResource("Resource_247a2")
 
-[node name="VitalitySM" parent="." index="5" unique_id=209048677]
+[node name="VitalitySM" parent="." index="4" unique_id=209048677]
 health_provider = SubResource("Resource_7dx2f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="6" unique_id=909119549]

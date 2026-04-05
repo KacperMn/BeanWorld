@@ -53,13 +53,15 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		input_direction = event.screen_relative * _current_mode.mouse_sensitivity
-	if Input.is_action_just_pressed("switch_camera_mode"):
-			if _current_mode == exploration_mode and combat_mode:
-				set_mode(combat_mode)
-			elif _current_mode == combat_mode and building_mode:
-				set_mode(building_mode)
-			elif _current_mode == building_mode and exploration_mode:
-				set_mode(exploration_mode)
+
+func _process(_delta: float) -> void:
+	var current_state = target.activity_sm.current_state
+	if current_state is ExplorationState and _current_mode != exploration_mode and exploration_mode:
+		set_mode(exploration_mode)
+	elif current_state is CombatState and _current_mode != combat_mode and combat_mode:
+		set_mode(combat_mode)
+	elif current_state is BuildingState and _current_mode != building_mode and building_mode:
+		set_mode(building_mode)
 
 func _physics_process(delta: float) -> void:
 	if not target or not _current_mode:

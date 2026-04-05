@@ -1,6 +1,6 @@
 class_name Action extends Resource
 
-@export var action_name: String = ""
+var action_name: String = ""
 @export var cast_time: float = 0.0
 @export var active_time: float = 0.0
 @export var recovery_time: float = 1.0
