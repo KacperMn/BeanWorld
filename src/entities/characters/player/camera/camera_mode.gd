@@ -11,11 +11,11 @@ class_name CameraMode extends Resource
 @export var max_pitch: float = 40.0
 
 # called once when this mode becomes active
-func on_enter(controller: CameraController) -> void:
+func on_enter(_controller: CameraController) -> void:
     pass
 
 # called once when leaving this mode
-func on_exit(controller: CameraController) -> void:
+func on_exit(_controller: CameraController) -> void:
     pass
 
 # called every physics frame
@@ -24,9 +24,9 @@ func update(delta: float, controller: CameraController) -> void:
     handle_rotation(delta, controller)
 
 # called every physics frame for rotation logic
-func handle_rotation(delta: float, controller: CameraController) -> void:
+func handle_rotation(_delta: float, _controller: CameraController) -> void:
     pass
 
 # called every physics frame for position logic
-func handle_position(delta: float, controller: CameraController) -> void:
+func handle_position(_delta: float, _controller: CameraController) -> void:
     pass

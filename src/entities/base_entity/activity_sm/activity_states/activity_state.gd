@@ -1,7 +1,5 @@
 class_name ActivityState extends State
 
 func update(_delta: float) -> void:
-    if entity.is_in_combat and state_name != "CombatState":
-        state_machine.transition_to("CombatState")
-    elif !entity.is_in_combat and state_name == "CombatState":
-        state_machine.transition_to("ExplorationState")
+    provider.get_is_in_combat(state_name)
+    provider.get_wants_to_build(state_name)
