@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 func _on_activity_state_changed(current_activity_state: ActivityState) -> void:
 	if current_activity_state is ExplorationState and _current_mode != exploration_mode and exploration_mode:
 		set_mode(exploration_mode)
-	elif current_activity_state is PlayerFightingState and _current_mode != combat_mode and combat_mode:
+	elif current_activity_state is FightingState and _current_mode != combat_mode and combat_mode:
 		set_mode(combat_mode)
 	elif current_activity_state is BuildingState and _current_mode != building_mode and building_mode:
 		set_mode(building_mode)

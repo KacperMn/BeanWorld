@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func setup_activity_sm() -> void:
 	activity_sm.provider = PlayerActivityProvider.new()
-	activity_sm.add_states([ExplorationState.new(), BuildingState.new(), PlayerFightingState.new()])
+	activity_sm.add_states([ExplorationState.new(), BuildingState.new(), FightingState.new()])
 	for state in activity_sm.states:
 		if state is ExplorationState:
 			activity_sm.current_state = state

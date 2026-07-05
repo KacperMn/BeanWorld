@@ -1,7 +1,7 @@
 class_name NPCActivityProvider extends ActivityProvider
 
 var wander_range = RangeQuery.new(10.0)
-var entity_detection_range = RangeQuery.new(5.0)
+var entity_detection_range = RangeQuery.new(15.0)
 
 var wander_timer = null
 var target_location = null
