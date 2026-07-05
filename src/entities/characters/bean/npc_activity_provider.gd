@@ -1,1 +1,0 @@
-class_name NPCActivityProvider extends ActivityProvider

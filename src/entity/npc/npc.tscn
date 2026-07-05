@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bv85nxrw3acih"]
+
+[ext_resource type="PackedScene" uid="uid://dnfv31smnmm8l" path="res://src/entity/combat_character/combat_character.tscn" id="1_h364s"]
+[ext_resource type="Script" uid="uid://cd5jn658agumj" path="res://src/entity/npc/npc.gd" id="2_gdo3s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vscox"]
+
+[node name="NPC" unique_id=558103743 instance=ExtResource("1_h364s")]
+script = ExtResource("2_gdo3s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1944343096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_vscox")

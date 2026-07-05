@@ -1,11 +1,15 @@
 class_name RangeQuery extends Resource
 
 @export var radius: float = 2.0
-@export var cone_angle: float = 360.0  # 360 = full sphere
-@export var height_offset: float = 0.0  # vertical center offset
+@export var cone_angle: float = 360.0 # 360 = full sphere
+@export var height_offset: float = 0.0 # vertical center offset
 @export var collision_mask: int = 1
 
-func get_entities_in_range(origin: Entity, forward: Vector3 = Vector3.ZERO) -> Array[Entity]:
+func _init(_radius: float = 0.0) -> void:
+    if _radius > 0.0:
+        self.radius = _radius
+
+func get_entities_in_range(origin: Node3D, forward: Vector3 = Vector3.ZERO) -> Array[Entity]:
     var results: Array[Entity] = []
     var space := origin.get_world_3d().direct_space_state
     var center := origin.global_position + Vector3(0, height_offset, 0)
@@ -58,6 +62,12 @@ func has_line_of_sight(origin: Node3D, target: Node3D) -> bool:
 
 func is_in_range(origin: Node3D, target: Node3D) -> bool:
     return origin.global_position.distance_to(target.global_position) <= radius
+
+func get_random_location(origin: Node3D) -> Vector3:
+    var center := origin.global_position + Vector3(0, height_offset, 0)
+    var random_pos: Vector3 = center + randf_range(-radius, radius) * Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized()
+
+    return random_pos
 
 func _in_cone(origin: Vector3, target_pos: Vector3, forward: Vector3) -> bool:
     if forward == Vector3.ZERO:

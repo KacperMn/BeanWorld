@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dnfv31smnmm8l"]
+
+[ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/entity/character/character.tscn" id="1_rf5me"]
+[ext_resource type="Script" uid="uid://jmdj47doc0ql" path="res://src/entity/combat_character/combat_character.gd" id="2_7y13b"]
+[ext_resource type="Script" uid="uid://cc7gpx2obeubt" path="res://src/entity/components/activity_sm/activity_sm.gd" id="3_7y13b"]
+
+[node name="CombatCharacter" unique_id=558103743 instance=ExtResource("1_rf5me")]
+script = ExtResource("2_7y13b")
+
+[node name="EntityCollider" parent="." index="0" unique_id=205919405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="EntityHUD" parent="." index="2" unique_id=624023189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012526035, 0, -0.012481451)
+
+[node name="MovementSM" parent="." index="3" unique_id=1883015031]
+metadata/_custom_type_script = "uid://bd44y742cvm6y"
+
+[node name="VitalitySM" parent="." index="4" unique_id=209048677]
+metadata/_custom_type_script = "uid://dk6umxry61ua0"
+
+[node name="CombatSM" parent="." index="5" unique_id=2064434602]
+metadata/_custom_type_script = "uid://d0msgobcsg70l"
+
+[node name="ActivitySM" type="Node" parent="." index="7" unique_id=647177044]
+script = ExtResource("3_7y13b")
+metadata/_custom_type_script = "uid://cc7gpx2obeubt"
