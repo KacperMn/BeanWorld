@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/entity/character/character.tscn" id="1_rf5me"]
 [ext_resource type="Script" uid="uid://jmdj47doc0ql" path="res://src/entity/combat_character/combat_character.gd" id="2_7y13b"]
-[ext_resource type="Script" uid="uid://cc7gpx2obeubt" path="res://src/entity/components/activity_sm/activity_sm.gd" id="3_7y13b"]
 
 [node name="CombatCharacter" unique_id=558103743 instance=ExtResource("1_rf5me")]
 script = ExtResource("2_7y13b")
@@ -21,7 +20,3 @@ metadata/_custom_type_script = "uid://dk6umxry61ua0"
 
 [node name="CombatSM" parent="." index="5" unique_id=2064434602]
 metadata/_custom_type_script = "uid://d0msgobcsg70l"
-
-[node name="ActivitySM" type="Node" parent="." index="7" unique_id=647177044]
-script = ExtResource("3_7y13b")
-metadata/_custom_type_script = "uid://cc7gpx2obeubt"

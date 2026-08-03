@@ -1,7 +1,10 @@
 class_name NPC extends CombatCharacter
 
+@onready var surroundings_component: SurroundingsComponent = $SurroundingsComponent
+
 func _ready() -> void:
 	movement_sm.provider = NPCMovementProvider.new()
+	surroundings_component.setup()
 	setup_activity_sm()
 	super()
 

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cdae1xa143eul" path="res://src/entity/character/character.gd" id="1_ein7y"]
 [ext_resource type="PackedScene" uid="uid://b0gnhue7i3ie" path="res://src/entity/base_entity/base_entity.tscn" id="1_tsf1a"]
 [ext_resource type="Script" uid="uid://mibyfpkula2e" path="res://src/entity/components/action_logic/action_component.gd" id="3_ru5t4"]
+[ext_resource type="Script" uid="uid://cc7gpx2obeubt" path="res://src/entity/components/activity_sm/activity_sm.gd" id="4_we802"]
+[ext_resource type="Script" uid="uid://byo05jwgky2oa" path="res://src/entity/character/relationship_manager/relationship_manager.gd" id="5_k7pmj"]
 
 [node name="Character" unique_id=558103743 instance=ExtResource("1_tsf1a")]
 script = ExtResource("1_ein7y")
@@ -10,3 +12,11 @@ script = ExtResource("1_ein7y")
 [node name="ActionComponent" type="Node" parent="." index="6" unique_id=1371779854]
 script = ExtResource("3_ru5t4")
 metadata/_custom_type_script = "uid://mibyfpkula2e"
+
+[node name="ActivitySM" type="Node" parent="." index="7" unique_id=1799462768]
+script = ExtResource("4_we802")
+metadata/_custom_type_script = "uid://cc7gpx2obeubt"
+
+[node name="RelationshipManager" type="Node" parent="." index="8" unique_id=1213149187]
+script = ExtResource("5_k7pmj")
+metadata/_custom_type_script = "uid://byo05jwgky2oa"
