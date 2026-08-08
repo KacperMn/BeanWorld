@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 	calculate_airspeed()
 	handle(delta)
 	handle_gravity(delta)
-	
+
 func handle(_delta: float) -> void:
 	pass
 
@@ -52,9 +52,9 @@ func apply_air_control(delta: float) -> void:
 
 func land() -> void:
 	velocity.y = 0.0
-	if provider.get_direction() == Vector3.ZERO:
-		change_state.emit("StandState")
+	if provider.get_direction() != Vector3.ZERO:
+		change_state.emit("WalkState")
 	elif provider.wants_sprint():
 		change_state.emit("SprintState")
 	else:
-		change_state.emit("WalkState")
+		change_state.emit("StandState")

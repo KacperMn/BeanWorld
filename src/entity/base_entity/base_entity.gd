@@ -28,11 +28,10 @@ var is_dead: bool:
 func _ready() -> void:
 	setup_health_components()
 	setup_movement_components()
-	combat_sm.setup()
+	setup_combat_components()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	process_movement()
-	combat_sm.set_combat_data(is_dead)
 
 func hurt(amount: float) -> void:
 	vitality_sm.hurt(amount)
@@ -48,6 +47,11 @@ func setup_health_components() -> void:
 	vitality_sm.setup_health_data(max_health)
 	vitality_sm.setup()
 
+func setup_combat_components() -> void:
+	vitality_sm.died.connect(combat_sm._on_dead_entity)
+	vitality_sm.revived.connect(combat_sm._on_revived_entity)
+	combat_sm.setup()
+
 func setup_movement_components() -> void:
 	speed = base_speed
 	vitality_sm.died.connect(movement_sm._on_dead_entity)
@@ -55,10 +59,7 @@ func setup_movement_components() -> void:
 	movement_sm.setup()
 
 func process_movement() -> void:
-	movement_sm.jump_force = jump_force
-	movement_sm.speed = speed
-	movement_sm.position = position
-	movement_sm.is_on_floor = is_on_floor()
-	velocity = movement_sm.velocity
-	rotation = movement_sm.rotation
+	var move_values: Dictionary = movement_sm.set_movement_values(jump_force, speed, position, is_on_floor())
+	velocity = move_values["velocity"]
+	rotation = move_values["rotation"]
 	move_and_slide()

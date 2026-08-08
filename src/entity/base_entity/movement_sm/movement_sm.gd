@@ -19,6 +19,16 @@ func setup() -> void:
 	current_state = states[states.find(StandState)]
 	super()
 
+func set_movement_values(jf: float, sp: float, pos: Vector3, iof: bool) -> Dictionary:
+	jump_force = jf
+	speed = sp
+	position = pos
+	is_on_floor = iof
+	return {
+		"velocity": velocity,
+		"rotation": rotation
+	}
+
 func _physics_process(delta: float) -> void:
 	current_state.is_on_floor = is_on_floor
 	super(delta)

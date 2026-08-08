@@ -25,9 +25,6 @@ func _ready() -> void:
 	camera.position.z = 0.0
 	if exploration_mode:
 		set_mode(exploration_mode, false)
-	
-func connect_to_activity_sm() -> void:
-	target.activity_sm.connect("state_changed", Callable(self, "_on_activity_state_changed"))
 
 func set_mode(mode: CameraMode, animate: bool = true) -> void:
 	if _current_mode:
@@ -56,12 +53,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		input_direction = event.screen_relative * _current_mode.mouse_sensitivity
 
-func _on_activity_state_changed(current_activity_state: ActivityState) -> void:
-	if current_activity_state is ExplorationState and _current_mode != exploration_mode and exploration_mode:
+func _on_playmode_state_changed(current_playmode_state: PlayModeState) -> void:
+	if current_playmode_state is ExplorationState and _current_mode != exploration_mode and exploration_mode:
 		set_mode(exploration_mode)
-	elif current_activity_state is FightingState and _current_mode != combat_mode and combat_mode:
+	elif current_playmode_state is FightingState and _current_mode != combat_mode and combat_mode:
 		set_mode(combat_mode)
-	elif current_activity_state is BuildingState and _current_mode != building_mode and building_mode:
+	elif current_playmode_state is BuildingState and _current_mode != building_mode and building_mode:
 		set_mode(building_mode)
 
 func _physics_process(delta: float) -> void:

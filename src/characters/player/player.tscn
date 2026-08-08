@@ -1,12 +1,13 @@
-[gd_scene format=4 uid="uid://bpufstfo4w4ac"]
+[gd_scene format=4 uid="uid://c1j8jtmg0krv3"]
 
-[ext_resource type="PackedScene" uid="uid://dnfv31smnmm8l" path="res://src/entity/combat_character/combat_character.tscn" id="1_qf5tv"]
-[ext_resource type="Script" uid="uid://chk0uwv23k0nq" path="res://src/characters/player/player.gd" id="2_hykh4"]
-[ext_resource type="PackedScene" uid="uid://byn7sudak1bnk" path="res://src/characters/player/camera/camera_controller.tscn" id="4_42nfu"]
-[ext_resource type="Script" uid="uid://cbd8nk26wor8o" path="res://src/characters/player/camera/modes/exploration_camera_mode.gd" id="5_hdrvx"]
-[ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/characters/player/camera/modes/combat_camera_mode.gd" id="6_dtnpb"]
-[ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/characters/player/camera/modes/building_camera_mode.gd" id="7_5kjsx"]
+[ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/entity/character/character.tscn" id="1_vmllx"]
+[ext_resource type="Script" uid="uid://chk0uwv23k0nq" path="res://src/characters/player/player.gd" id="2_omdve"]
+[ext_resource type="PackedScene" uid="uid://byn7sudak1bnk" path="res://src/characters/player/camera/camera_controller.tscn" id="3_bes5w"]
+[ext_resource type="Script" uid="uid://cbd8nk26wor8o" path="res://src/characters/player/camera/modes/exploration_camera_mode.gd" id="4_ynxpe"]
+[ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/characters/player/camera/modes/combat_camera_mode.gd" id="5_7q7ec"]
+[ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/characters/player/camera/modes/building_camera_mode.gd" id="6_lo3r8"]
 [ext_resource type="Script" uid="uid://psgkeiby4jcu" path="res://src/entity/character/action_logic/action.gd" id="7_50u7j"]
+[ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/characters/player/playmode_sm/playmode_sm.gd" id="7_hhaut"]
 [ext_resource type="Script" uid="uid://yw56g3cmrhjy" path="res://src/entity/character/action_logic/actions/melee_attack.gd" id="8_6m51j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mhiu"]
@@ -15,7 +16,7 @@ cull_mode = 2
 albedo_color = Color(0.0564343, 0.0280802, 0.139233, 1)
 roughness = 0.809645
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_hhaut"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_do6bu"]
 resource_name = "cat_checkpoint_Cube_002"
 _surfaces = [{
 "aabb": AABB(-0.705306, 6.05176e-05, -1.43534, 1.61637, 3.78384, 2.87068),
@@ -35,7 +36,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_50u7j"]
+[sub_resource type="Skin" id="Skin_3ffof"]
 resource_name = "Skin"
 bind_count = 17
 bind/0/name = &"Bone"
@@ -193,34 +194,34 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, 0.0025969, -0.00206611, -0.109719, 0.993957, 0.0333333, 1, 0.0025969, -0.00206611, -0.109719, 0.993957, 0.0666667, 1, 0.00260011, -0.00197536, -0.105475, 0.994417, 0.1, 1, 0.00260694, -0.00176434, -0.0956692, 0.995408, 0.133333, 1, 0.00261616, -0.00144143, -0.0807743, 0.996728, 0.166667, 1, 0.00262512, -0.00105323, -0.063065, 0.998005, 0.2, 1, 0.00262964, -0.00067198, -0.0461972, 0.998929, 0.233333, 1, 0.00262662, -0.000347175, -0.0324313, 0.999471, 0.266667, 1, 0.00261694, -6.22291e-05, -0.0208512, 0.999779, 0.3, 1, 0.00260253, 0.000205828, -0.0102174, 0.999944, 0.333333, 1, 0.00258645, 0.000486306, 0.00103047, 0.999996, 0.366667, 1, 0.00257399, 0.000841884, 0.0162161, 0.999865, 0.4, 1, 0.00256686, 0.00127536, 0.0355753, 0.999363, 0.433333, 1, 0.00256357, 0.00174213, 0.0569472, 0.998372, 0.466667, 1, 0.00256274, 0.00219019, 0.0777942, 0.996964, 0.5, 1, 0.00256315, 0.00256048, 0.0952142, 0.99545, 0.533333, 1, 0.00256366, 0.0027099, 0.1023, 0.994747, 0.566667, 1, 0.00256753, 0.00257426, 0.097032, 0.995275, 0.6, 1, 0.00257503, 0.002205, 0.0818557, 0.996638, 0.633333, 1, 0.00258416, 0.001697, 0.0606944, 0.998152, 0.666667, 1, 0.00259166, 0.00118959, 0.0389879, 0.999236, 0.7, 1, 0.00259318, 0.000963145, 0.0274907, 0.999618, 0.733333, 1, 0.00259066, 0.000910787, 0.0234074, 0.999722, 0.8, 1, 0.00258083, 0.000919634, 0.0222565, 0.999749, 0.833333, 1, 0.00257554, 0.000923634, 0.0220263, 0.999754, 0.866667, 1, 0.00257174, 0.000929328, 0.0204149, 0.999788, 0.9, 1, 0.00257396, 0.000653133, 0.00668351, 0.999974, 0.933333, 1, 0.00258107, 5.50425e-05, -0.0199965, 0.999797, 0.966667, 1, 0.00258931, -0.000771211, -0.0553861, 0.998461, 1, 1, 0.00259492, -0.00159785, -0.0901896, 0.99592, 1.04167, 1, 0.0025969, -0.00206611, -0.109719, 0.993957)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6m51j"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvk0j"]
 _data = {
 &"Walk_002": SubResource("Animation_awiua")
 }
 
-[sub_resource type="Resource" id="Resource_020ow"]
-script = ExtResource("5_hdrvx")
+[sub_resource type="Resource" id="Resource_3ptgk"]
+script = ExtResource("4_ynxpe")
 metadata/_custom_type_script = "uid://cbd8nk26wor8o"
 
-[sub_resource type="Resource" id="Resource_grn1g"]
-script = ExtResource("6_dtnpb")
+[sub_resource type="Resource" id="Resource_71eat"]
+script = ExtResource("5_7q7ec")
 metadata/_custom_type_script = "uid://xpa8vyal015t"
 
-[sub_resource type="Resource" id="Resource_2q7jk"]
-script = ExtResource("7_5kjsx")
+[sub_resource type="Resource" id="Resource_ryewx"]
+script = ExtResource("6_lo3r8")
 metadata/_custom_type_script = "uid://d1beao0f5jn0c"
 
-[sub_resource type="Resource" id="Resource_7swvd"]
+[sub_resource type="Resource" id="Resource_50u7j"]
 script = ExtResource("8_6m51j")
 metadata/_custom_type_script = "uid://yw56g3cmrhjy"
 
-[node name="Player" unique_id=558103743 instance=ExtResource("1_qf5tv")]
-script = ExtResource("2_hykh4")
+[node name="Player" unique_id=558103743 instance=ExtResource("1_vmllx")]
+script = ExtResource("2_omdve")
 
-[node name="Armature" type="Node3D" parent="." index="0" unique_id=1913912716]
+[node name="Armature" type="Node3D" parent="." index="0" unique_id=548220542]
 transform = Transform3D(-0.272, 0, -9.452337e-08, 0, 0.4, 0, 4.1070862e-08, 0, -0.626, 0.00535089, 0.3136379, 0.0103911)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Armature" index="0" unique_id=1145393027]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature" index="0" unique_id=176070250]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37199e-10, -5.96046e-08, 1.14512e-11)
@@ -341,25 +342,28 @@ bones/16/position = Vector3(1.55076e-07, 0.517122, -5.3551e-09)
 bones/16/rotation = Quaternion(0.0025969003, -0.0020661098, -0.109719016, 0.9939571)
 bones/16/scale = Vector3(1, 1, 1)
 
-[node name="Cat" type="MeshInstance3D" parent="Armature/Skeleton3D" index="0" unique_id=150328472]
-mesh = SubResource("ArrayMesh_hhaut")
-skin = SubResource("Skin_50u7j")
+[node name="Cat" type="MeshInstance3D" parent="Armature/Skeleton3D" index="0" unique_id=417452925]
+mesh = SubResource("ArrayMesh_do6bu")
+skin = SubResource("Skin_3ffof")
 
-[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="1" unique_id=1980012336]
+[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="1" unique_id=1493806770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
 remote_path = NodePath("../CameraController")
 update_rotation = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=2113108875]
-libraries/ = SubResource("AnimationLibrary_6m51j")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=669316817]
+libraries/ = SubResource("AnimationLibrary_xvk0j")
 autoplay = &"Walk_002"
 
-[node name="CameraController" parent="." index="3" unique_id=1313310453 instance=ExtResource("4_42nfu")]
+[node name="CameraController" parent="." index="3" unique_id=1313310453 instance=ExtResource("3_bes5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
-exploration_mode = SubResource("Resource_020ow")
-combat_mode = SubResource("Resource_grn1g")
-building_mode = SubResource("Resource_2q7jk")
+exploration_mode = SubResource("Resource_3ptgk")
+combat_mode = SubResource("Resource_71eat")
+building_mode = SubResource("Resource_ryewx")
 
 [node name="ActionComponent" parent="." index="10" unique_id=1371779854]
-slot_actions = Array[ExtResource("7_50u7j")]([SubResource("Resource_7swvd")])
-metadata/_custom_type_script = "uid://mibyfpkula2e"
+slot_actions = Array[ExtResource("7_50u7j")]([SubResource("Resource_50u7j")])
+
+[node name="PlayModeSM" type="Node" parent="." index="13" unique_id=1895750621]
+script = ExtResource("7_hhaut")
+metadata/_custom_type_script = "uid://dae261otlqwql"

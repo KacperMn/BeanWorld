@@ -1,10 +1,9 @@
-class_name NPC extends CombatCharacter
+class_name NPC extends Character
 
-@onready var surroundings_component: SurroundingsComponent = $SurroundingsComponent
+@onready var activity_sm: ActivitySM = $ActivitySM
 
 func _ready() -> void:
 	movement_sm.provider = NPCMovementProvider.new()
-	surroundings_component.setup()
 	setup_activity_sm()
 	super()
 
