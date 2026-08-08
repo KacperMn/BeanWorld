@@ -1,19 +1,24 @@
 class_name PlayerMovementProvider extends MovementProvider
 
-func get_direction(_entity: Entity) -> Vector3:
+var camera_arm
+
+func _init(_camera_arm: Node3D) -> void:
+	camera_arm = _camera_arm
+
+func get_direction() -> Vector3:
 	if not enabled:
 		return Vector3.ZERO
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	if input_dir == Vector2.ZERO:
 		return Vector3.ZERO
-	var direction = entity.camera_controller.camera_arm.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+	var direction = camera_arm.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
 	direction.y = 0.0
 	return direction.normalized()
 
 func wants_jump() -> bool:
 	if not enabled:
 		return false
-	return Input.is_action_just_pressed("jump")
+	return Input.is_action_pressed("jump")
 
 func wants_jump_held() -> bool:
 	if not enabled:

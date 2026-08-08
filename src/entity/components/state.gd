@@ -1,11 +1,12 @@
 class_name State extends Resource
 
 var state_name: String
-var entity: Entity
-var state_machine: StateMachine
 var provider: Provider
+signal change_state(new_state: String)
+signal entered_state(state_name: String)
 
 func enter() -> void:
+	entered_state.emit(state_name)
 	pass
 
 func exit() -> void:

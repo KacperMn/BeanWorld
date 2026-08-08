@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bv85nxrw3acih"]
+
+[ext_resource type="PackedScene" uid="uid://dnfv31smnmm8l" path="res://src/entity/combat_character/combat_character.tscn" id="1_h364s"]
+[ext_resource type="Script" uid="uid://cd5jn658agumj" path="res://src/characters/npc/npc.gd" id="2_gdo3s"]
+[ext_resource type="Script" uid="uid://ohsfx8hac2v8" path="res://src/entity/character/surroundings_component/surroundings_component.gd" id="3_jheil"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vscox"]
+
+[node name="NPC" unique_id=558103743 instance=ExtResource("1_h364s")]
+script = ExtResource("2_gdo3s")
+max_health = 100.0
+base_speed = 10.0
+jump_force = 12.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1944343096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_vscox")
+
+[node name="SurroundingsComponent" type="Node" parent="." index="10" unique_id=1530978044]
+script = ExtResource("3_jheil")
+metadata/_custom_type_script = "uid://ohsfx8hac2v8"

@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://cbd8nk26wor8o" path="res://src/characters/player/camera/modes/exploration_camera_mode.gd" id="5_hdrvx"]
 [ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/characters/player/camera/modes/combat_camera_mode.gd" id="6_dtnpb"]
 [ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/characters/player/camera/modes/building_camera_mode.gd" id="7_5kjsx"]
-[ext_resource type="Script" uid="uid://psgkeiby4jcu" path="res://src/entity/components/action_logic/action.gd" id="7_50u7j"]
-[ext_resource type="Script" uid="uid://yw56g3cmrhjy" path="res://src/entity/combat_character/actions/melee_attack.gd" id="8_6m51j"]
+[ext_resource type="Script" uid="uid://psgkeiby4jcu" path="res://src/entity/character/action_logic/action.gd" id="7_50u7j"]
+[ext_resource type="Script" uid="uid://yw56g3cmrhjy" path="res://src/entity/character/action_logic/actions/melee_attack.gd" id="8_6m51j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mhiu"]
 resource_name = "Material.001"
@@ -362,3 +362,4 @@ building_mode = SubResource("Resource_2q7jk")
 
 [node name="ActionComponent" parent="." index="10" unique_id=1371779854]
 slot_actions = Array[ExtResource("7_50u7j")]([SubResource("Resource_7swvd")])
+metadata/_custom_type_script = "uid://mibyfpkula2e"

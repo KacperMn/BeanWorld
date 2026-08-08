@@ -4,12 +4,12 @@ class_name CombatCameraMode extends CameraMode
 @export var auto_rotate_threshold: float = 20.0
 
 
-func on_enter(controller: CameraController) -> void:
+func on_enter(_controller: CameraController) -> void:
 	print("Entered combat camera mode")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	distance = 10.0
 
-func handle_position(delta: float, controller: CameraController) -> void:
+func handle_position(_delta: float, _controller: CameraController) -> void:
 	# controller.global_position = Vector3(
 	# 	controller.target.global_position.x,
 	# 	controller.target.global_position.y + controller.vertical_offset,
