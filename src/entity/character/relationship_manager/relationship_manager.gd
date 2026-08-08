@@ -1,10 +1,6 @@
 class_name RelationshipManager extends Node
 
-var entity: Entity
 var relationships: Dictionary = {}
-
-func setup() -> void:
-    entity = get_parent() as Entity
 
 func unknown_or_uninteracted(other_entity: Entity) -> bool:
     if not has_relationship(other_entity):

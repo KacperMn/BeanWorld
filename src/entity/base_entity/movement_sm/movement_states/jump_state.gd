@@ -8,7 +8,6 @@ func _init() -> void:
 func enter() -> void:
 	super()
 	velocity.y = jump_force
-	print(velocity.y)
 
 func handle(delta: float) -> void:
 	if velocity.y > 0.0:
