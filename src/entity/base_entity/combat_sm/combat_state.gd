@@ -1,1 +1,0 @@
-class_name CombatState extends State

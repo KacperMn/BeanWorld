@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b88m0f4kfvhqw"]
+
+[ext_resource type="Script" uid="uid://yw56g3cmrhjy" path="res://src/game_core/entity/character/action_component/actions/melee_attack.gd" id="1_oceiy"]
+[ext_resource type="PackedScene" uid="uid://cl28l0xabnf4y" path="res://src/game_core/utils/range_area.tscn" id="2_48c5l"]
+
+[node name="MeleeAttack" type="Node3D" unique_id=1814635261]
+script = ExtResource("1_oceiy")
+metadata/_custom_type_script = "uid://yw56g3cmrhjy"
+
+[node name="RangeArea" parent="." unique_id=451600284 instance=ExtResource("2_48c5l")]
+cone_angle = 120.0

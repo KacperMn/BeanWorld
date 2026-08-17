@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b0gnhue7i3ie"]
+
+[ext_resource type="Script" uid="uid://33shlfglkrnl" path="res://src/game_core/entity/base_entity/base_entity.gd" id="1_peqsn"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="2_tjcka"]
+[ext_resource type="Script" uid="uid://dcdc6fn6tbk04" path="res://src/game_core/entity/base_entity/health_component/health_component.gd" id="6_8e1kg"]
+[ext_resource type="PackedScene" uid="uid://cyjsx53nx43pe" path="res://src/game_core/entity/base_entity/hud/entity_hud.tscn" id="6_fqi46"]
+[ext_resource type="PackedScene" uid="uid://b365ptuioj6u6" path="res://src/game_core/entity/base_entity/combat_component/combat_component.tscn" id="7_a1amo"]
+[ext_resource type="Script" uid="uid://bd44y742cvm6y" path="res://src/game_core/entity/base_entity/movement_sm/movement_sm.gd" id="11_k5xkk"]
+
+[sub_resource type="Resource" id="Resource_ppubm"]
+resource_local_to_scene = true
+script = ExtResource("2_tjcka")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fqi46"]
+resource_local_to_scene = true
+
+[node name="BaseEntity" type="CharacterBody3D" unique_id=558103743]
+collision_mask = 3
+script = ExtResource("1_peqsn")
+stats_component = SubResource("Resource_ppubm")
+
+[node name="EntityCollider" type="CollisionShape3D" parent="." unique_id=205919405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fqi46")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1464787156]
+
+[node name="EntityHUD" parent="." unique_id=624023189 instance=ExtResource("6_fqi46")]
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1883015031]
+script = ExtResource("11_k5xkk")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=379978557]
+script = ExtResource("6_8e1kg")
+
+[node name="CombatComponent" parent="." unique_id=1522242131 instance=ExtResource("7_a1amo")]

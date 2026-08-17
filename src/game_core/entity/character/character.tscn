@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dblmm86gfsrwj"]
+
+[ext_resource type="Script" uid="uid://cdae1xa143eul" path="res://src/game_core/entity/character/character.gd" id="1_ein7y"]
+[ext_resource type="PackedScene" uid="uid://b0gnhue7i3ie" path="res://src/game_core/entity/base_entity/base_entity.tscn" id="1_tsf1a"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="3_aihny"]
+[ext_resource type="Script" uid="uid://mibyfpkula2e" path="res://src/game_core/entity/character/action_component/action_component.gd" id="5_px743"]
+[ext_resource type="PackedScene" uid="uid://blphhc4lqyxm3" path="res://src/game_core/entity/character/awareness_component/awareness_component.tscn" id="5_tprp4"]
+
+[sub_resource type="Resource" id="Resource_aihny"]
+resource_local_to_scene = true
+script = ExtResource("3_aihny")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[node name="Character" unique_id=558103743 instance=ExtResource("1_tsf1a")]
+script = ExtResource("1_ein7y")
+stats_component = SubResource("Resource_aihny")
+
+[node name="AwarenessComponent" parent="." index="6" unique_id=980788632 instance=ExtResource("5_tprp4")]
+
+[node name="ActionComponent" type="Node3D" parent="." index="7" unique_id=2011348476]
+script = ExtResource("5_px743")
+metadata/_custom_type_script = "uid://mibyfpkula2e"

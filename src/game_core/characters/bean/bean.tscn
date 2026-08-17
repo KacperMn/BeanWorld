@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c5dow4mguclni"]
+
+[ext_resource type="PackedScene" uid="uid://bv85nxrw3acih" path="res://src/game_core/entity/npc/npc.tscn" id="1_evl23"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="2_sdvyu"]
+[ext_resource type="Script" uid="uid://bsii6mwdjwkv0" path="res://src/game_core/entity/npc/npc_movement_provider.gd" id="3_vbxtw"]
+[ext_resource type="Script" uid="uid://tco37h0hi88b" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/idle_state.gd" id="4_jwopc"]
+[ext_resource type="Script" uid="uid://belp7ymh5wvty" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/inspect_state.gd" id="5_4obio"]
+[ext_resource type="Script" uid="uid://21pgb0fay62o" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/interaction_state.gd" id="6_w1gur"]
+
+[sub_resource type="Resource" id="Resource_jwopc"]
+resource_local_to_scene = true
+script = ExtResource("2_sdvyu")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4obio"]
+resource_local_to_scene = true
+
+[sub_resource type="Resource" id="Resource_w1gur"]
+resource_local_to_scene = true
+script = ExtResource("3_vbxtw")
+metadata/_custom_type_script = "uid://bsii6mwdjwkv0"
+
+[sub_resource type="Resource" id="Resource_evl23"]
+resource_local_to_scene = true
+script = ExtResource("4_jwopc")
+metadata/_custom_type_script = "uid://tco37h0hi88b"
+
+[sub_resource type="Resource" id="Resource_sdvyu"]
+resource_local_to_scene = true
+script = ExtResource("5_4obio")
+
+[sub_resource type="Resource" id="Resource_vbxtw"]
+resource_local_to_scene = true
+script = ExtResource("6_w1gur")
+
+[node name="Bean" unique_id=558103743 instance=ExtResource("1_evl23")]
+stats_component = SubResource("Resource_jwopc")
+
+[node name="EntityCollider" parent="." index="1" unique_id=205919405]
+shape = SubResource("CapsuleShape3D_4obio")
+
+[node name="MovementComponent" parent="." index="4" unique_id=1883015031]
+provider = SubResource("Resource_w1gur")
+
+[node name="BehaviourComponent" parent="." index="9" unique_id=322738152]
+behaviour_states = Array[Object]([SubResource("Resource_evl23"), SubResource("Resource_sdvyu"), SubResource("Resource_vbxtw")])

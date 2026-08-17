@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://blphhc4lqyxm3"]
+
+[ext_resource type="Script" uid="uid://dcgij18eck4g8" path="res://src/game_core/entity/character/awareness_component/awareness_component.gd" id="1_ra6dl"]
+[ext_resource type="PackedScene" uid="uid://dudr1jn0b452q" path="res://src/game_core/entity/character/awareness_component/surroundings_component/surroundings_component.tscn" id="2_u5ra7"]
+[ext_resource type="Script" uid="uid://byo05jwgky2oa" path="res://src/game_core/entity/character/awareness_component/relationship_manager/relationship_manager.gd" id="3_cvc5i"]
+
+[node name="AwarenessComponent" type="Node3D" unique_id=980788632]
+script = ExtResource("1_ra6dl")
+
+[node name="RelationshipManager" type="Node" parent="." unique_id=2108355211]
+script = ExtResource("3_cvc5i")
+metadata/_custom_type_script = "uid://byo05jwgky2oa"
+
+[node name="SurroundingsComponent" parent="." unique_id=1371964174 instance=ExtResource("2_u5ra7")]

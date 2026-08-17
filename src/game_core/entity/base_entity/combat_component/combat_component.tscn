@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b365ptuioj6u6"]
+
+[ext_resource type="Script" uid="uid://bxjlwwtsag4se" path="res://src/game_core/entity/base_entity/combat_component/combat_component.gd" id="1_b1fp8"]
+
+[node name="CombatComponent" type="Node" unique_id=1522242131]
+script = ExtResource("1_b1fp8")
+
+[node name="CombatTimer" type="Timer" parent="." unique_id=1769120744]
+wait_time = 5.0
+one_shot = true

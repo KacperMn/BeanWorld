@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cg2qbxupgei15"]
+
+[ext_resource type="PackedScene" uid="uid://c1j8jtmg0krv3" path="res://src/game_core/characters/player/player.tscn" id="1_cw1nv"]
+[ext_resource type="PackedScene" uid="uid://c5dow4mguclni" path="res://src/game_core/characters/bean/bean.tscn" id="2_2h823"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="3_72ytv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxppu"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gy3sr"]
+sky_material = SubResource("ProceduralSkyMaterial_dxppu")
+
+[sub_resource type="Environment" id="Environment_1lwx6"]
+background_mode = 2
+sky = SubResource("Sky_gy3sr")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_iyqu8"]
+vertices = PackedVector3Array(-87.38754, 0.4995, -0.040420532, -2.3875427, 0.4995, -0.040420532, -1.8875427, 0.4995, -2.0404205, 0.112457275, 0.4995, -3.0404205, 0.112457275, 0.4995, -145.54042, -87.38754, 0.4995, -145.54042, 1.8624573, 0.4995, -2.0404205, 2.6124573, 0.4995, -0.040420532, 87.36246, 0.4995, -0.040420532, 87.36246, 0.4995, -145.54042, -1.8875427, 0.4995, 1.9595795, 0.112457275, 0.4995, 2.9595795, -87.38754, 0.4995, 145.70958, 0.112457275, 0.4995, 145.70958, 1.8624573, 0.4995, 2.2095795, 87.36246, 0.4995, 145.70958)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(8, 7, 6), PackedInt32Array(6, 3, 8), PackedInt32Array(8, 3, 4), PackedInt32Array(8, 4, 9), PackedInt32Array(0, 1, 10), PackedInt32Array(10, 11, 0), PackedInt32Array(0, 11, 13), PackedInt32Array(0, 13, 12), PackedInt32Array(14, 7, 8), PackedInt32Array(14, 8, 11), PackedInt32Array(11, 8, 13), PackedInt32Array(13, 8, 15)]
+border_size = 2.0
+agent_radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_w4g5o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_72ytv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tam24"]
+noise = SubResource("FastNoiseLite_72ytv")
+color_ramp = SubResource("Gradient_w4g5o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t34gm"]
+albedo_color = Color(0.030149957, 0.32159334, 0.027683219, 1)
+albedo_texture = SubResource("NoiseTexture2D_tam24")
+albedo_texture_force_srgb = true
+albedo_texture_msdf = true
+roughness = 0.75
+
+[sub_resource type="Resource" id="Resource_72ytv"]
+resource_local_to_scene = true
+script = ExtResource("3_72ytv")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="Resource" id="Resource_w4g5o"]
+resource_local_to_scene = true
+script = ExtResource("3_72ytv")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="Resource" id="Resource_twr8d"]
+resource_local_to_scene = true
+script = ExtResource("3_72ytv")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[node name="test_world" type="Node3D" unique_id=802857313]
+process_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705167593]
+environment = SubResource("Environment_1lwx6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=483395430]
+transform = Transform3D(-0.965016, 0.252654, -0.070067, 0, 0.267238, 0.96363, 0.262189, 0.929919, -0.257889, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=905082979]
+navigation_mesh = SubResource("NavigationMesh_iyqu8")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1339666476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, 0, 0.046)
+use_collision = true
+collision_layer = 2
+size = Vector3(178.69308, 0.001, 295.17285)
+material = SubResource("StandardMaterial3D_t34gm")
+
+[node name="Player" parent="NavigationRegion3D" unique_id=128945814 instance=ExtResource("1_cw1nv")]
+
+[node name="Bean" parent="." unique_id=558103743 instance=ExtResource("2_2h823")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.084133, 0.0005002022, -20.884977)
+stats_component = SubResource("Resource_72ytv")
+
+[node name="Bean2" parent="." unique_id=1570325098 instance=ExtResource("2_2h823")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.884281, 0.0004992485, -53.25045)
+stats_component = SubResource("Resource_w4g5o")
+
+[node name="Bean3" parent="." unique_id=1352007238 instance=ExtResource("2_2h823")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.578644, 0.0005002022, -0.29315805)
+stats_component = SubResource("Resource_twr8d")

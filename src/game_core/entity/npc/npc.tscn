@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bv85nxrw3acih"]
+
+[ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/game_core/entity/character/character.tscn" id="1_pi2gw"]
+[ext_resource type="Script" uid="uid://cd5jn658agumj" path="res://src/game_core/entity/npc/npc.gd" id="2_gdo3s"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="3_y8bgs"]
+[ext_resource type="Script" uid="uid://bsii6mwdjwkv0" path="res://src/game_core/entity/npc/npc_movement_provider.gd" id="4_toyg5"]
+[ext_resource type="Script" uid="uid://cn7hc63padrv7" path="res://src/game_core/entity/npc/behaviour_component/behaviour_component.gd" id="6_jsdbf"]
+
+[sub_resource type="Resource" id="Resource_rrst7"]
+resource_local_to_scene = true
+script = ExtResource("3_y8bgs")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vtnle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md6d6"]
+albedo_color = Color(0.8785628, 0.507918, 0.39772484, 1)
+
+[sub_resource type="Resource" id="Resource_1f7c7"]
+resource_local_to_scene = true
+script = ExtResource("4_toyg5")
+metadata/_custom_type_script = "uid://bsii6mwdjwkv0"
+
+[node name="NPC" unique_id=558103743 instance=ExtResource("1_pi2gw")]
+script = ExtResource("2_gdo3s")
+stats_component = SubResource("Resource_rrst7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1758402360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_vtnle")
+surface_material_override/0 = SubResource("StandardMaterial3D_md6d6")
+
+[node name="MovementComponent" parent="." index="4" unique_id=1883015031]
+provider = SubResource("Resource_1f7c7")
+
+[node name="BehaviourComponent" type="Node" parent="." index="9" unique_id=322738152]
+script = ExtResource("6_jsdbf")
+metadata/_custom_type_script = "uid://cn7hc63padrv7"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="10" unique_id=1760778348]
+debug_enabled = true
+debug_path_custom_color = Color(0.93260014, 0.305331, 0.30924484, 1)

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cwlfarp2hmwbv"]
+
+[ext_resource type="Script" uid="uid://ycdc3cjsssd7" path="res://src/ui/pause_menu.gd" id="1_yqfnv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tam24"]
+bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.35686275)
+
+[sub_resource type="FontVariation" id="FontVariation_qfdrf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqfnv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmpqy"]
+bg_color = Color(0.29586652, 0.2958665, 0.2958665, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qq3a"]
+bg_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[node name="PauseMenu" type="Control" unique_id=766270259]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqfnv")
+
+[node name="Panel" type="Panel" parent="." unique_id=564106732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tam24")
+
+[node name="Label" type="Label" parent="." unique_id=134579710]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -492.5
+offset_top = 143.0
+offset_right = 492.5
+offset_bottom = 348.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = SubResource("FontVariation_qfdrf")
+theme_override_font_sizes/font_size = 80
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1677175904]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -168.375
+offset_right = 290.0
+offset_bottom = 168.375
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="ContinueGameButton" type="Button" parent="VBoxContainer" unique_id=1556348619]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqfnv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmpqy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6qq3a")
+text = "Continue"
+
+[node name="BackToMenuButton" type="Button" parent="VBoxContainer" unique_id=1462253005]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqfnv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmpqy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6qq3a")
+text = "Back to menu"
+
+[node name="ExitGameButton" type="Button" parent="VBoxContainer" unique_id=6054776]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqfnv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmpqy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6qq3a")
+text = "Exit the game"
+
+[connection signal="pressed" from="VBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

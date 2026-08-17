@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://og0gtlg177wk"]
+
+[ext_resource type="Texture2D" uid="uid://bh7eqppyhc8te" path="res://src/assets/Screenshot 2026-08-11 175122.png" id="1_qkuje"]
+[ext_resource type="Script" uid="uid://q218wyn8wc26" path="res://src/ui/main_menu.gd" id="1_qoywa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cw1nv"]
+texture = ExtResource("1_qkuje")
+modulate_color = Color(0.36708885, 0.3640013, 0.26376244, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_cg2np"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tam24"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkuje"]
+bg_color = Color(0.29586652, 0.2958665, 0.2958665, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoywa"]
+bg_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(2, 4)
+
+[node name="MainMenu" type="Control" unique_id=1325742961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qoywa")
+
+[node name="Background" type="Panel" parent="." unique_id=1256057463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cw1nv")
+
+[node name="TitleScreen" type="Control" parent="." unique_id=1486872751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TitleScreen" unique_id=1276949633]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -492.5
+offset_top = 83.0
+offset_right = 492.5
+offset_bottom = 288.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = SubResource("FontVariation_cg2np")
+theme_override_font_sizes/font_size = 150
+text = "Bean World"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen" unique_id=863416567]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -168.375
+offset_right = 290.0
+offset_bottom = 168.375
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NewGameButton" type="Button" parent="TitleScreen/VBoxContainer" unique_id=1125452517]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tam24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qkuje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qoywa")
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="TitleScreen/VBoxContainer" unique_id=1686659494]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tam24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qkuje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qoywa")
+text = "Load Game"
+
+[node name="OptionsButton" type="Button" parent="TitleScreen/VBoxContainer" unique_id=1991592335]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.91954255, 0.9195426, 0.91954255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tam24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qkuje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qoywa")
+text = "Options"
+
+[node name="LoadingScreen" type="Control" parent="." unique_id=27518986]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LoadingScreen" unique_id=1605381886]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -492.5
+offset_top = 429.0
+offset_right = 492.5
+offset_bottom = 634.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = SubResource("FontVariation_cg2np")
+theme_override_font_sizes/font_size = 70
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SettingsScreen" type="Control" parent="." unique_id=833389670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsScreen" unique_id=208097314]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -492.5
+offset_top = 429.0
+offset_right = 492.5
+offset_bottom = 634.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = SubResource("FontVariation_cg2np")
+theme_override_font_sizes/font_size = 70
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="TitleScreen/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

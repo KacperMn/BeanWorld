@@ -1,0 +1,22 @@
+class_name MovementProvider extends Provider
+
+var entity: Node3D
+var enabled: bool = true
+
+func setup(_entity: Node3D) -> void:
+	pass
+
+func update(_delta: float) -> void:
+	pass
+
+func get_direction() -> Vector3:
+	return Vector3.ZERO
+
+func wants_jump() -> bool:
+	return false
+
+func wants_jump_held() -> bool:
+	return false
+
+func wants_sprint() -> bool:
+	return false

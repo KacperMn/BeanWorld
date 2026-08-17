@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ctiejsn2dc1vc"]
+
+[ext_resource type="PackedScene" uid="uid://cwlfarp2hmwbv" path="res://src/ui/pause_menu.tscn" id="1_72k5g"]
+
+[sub_resource type="GDScript" id="GDScript_eewff"]
+script/source = "extends Node
+
+var TEST_WORLD_UID = preload(\"uid://cg2qbxupgei15\")
+
+signal exit_to_main_menu_requested
+signal quit_requested
+
+@onready var pause_menu = $PauseMenu  # keep persistent too, that part's fine
+
+var test_world: Node
+
+func _ready() -> void:
+	pause_menu.exit_to_main_menu_requested.connect(func(): exit_to_main_menu_requested.emit())
+	pause_menu.quit_requested.connect(func(): quit_requested.emit())
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"pause\") and test_world != null:
+		pause_menu.toggle_pause()
+		get_viewport().set_input_as_handled()
+
+func load_game(savefile: String) -> void:
+	if savefile == \"\":
+		test_world = TEST_WORLD_UID.instantiate()
+		add_child(test_world)
+	else:
+		pass  # start_game_from_save_file equivalent
+
+func unload_game() -> void:
+	if test_world:
+		test_world.queue_free()
+		test_world = null
+"
+
+[node name="GameCore" type="Node" unique_id=793640333]
+script = SubResource("GDScript_eewff")
+
+[node name="PauseMenu" parent="." unique_id=766270259 instance=ExtResource("1_72k5g")]
