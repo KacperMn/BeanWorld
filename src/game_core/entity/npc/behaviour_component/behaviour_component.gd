@@ -44,6 +44,7 @@ func handle_state_entered(_state: String) -> void:
 func _on_state_new_target_location(location: Vector3) -> void:
 	target_location = location
 
+
 func set_interacting_character(character: Character) -> void:
 	interacting_character = character
 

@@ -12,6 +12,7 @@ var interacting_character: Character:
 		interacting_character = value
 
 var arrived: bool = true
+var should_be_running: bool = false
 
 signal new_target_location(target_location: Vector3)
 
@@ -19,3 +20,10 @@ var target_location: Vector3:
 	set(value):
 		target_location = value
 		new_target_location.emit(target_location)
+
+func stop_walking() -> void:
+	target_location = awareness_component.global_transform.origin
+
+func start_moving_towards(target: Vector3) -> void:
+	arrived = false
+	target_location = target

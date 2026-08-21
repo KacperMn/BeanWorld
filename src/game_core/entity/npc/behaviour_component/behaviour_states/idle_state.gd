@@ -17,12 +17,11 @@ func wander(delta: float) -> void:
 		else:
 			wander_timer -= delta
 			if wander_timer <= 0.0:
-				arrived = false
-				target_location = awareness_component.surroundings_component.surroundings_range.get_random_location()
+				start_moving_towards(awareness_component.surroundings_component.surroundings_range.get_random_location())
 
 func check_should_interact() -> void:
 	for surrounding_character in awareness_component.surroundings_component.surrounding_characters.values():
 		if !surrounding_character.relationship.interacted_recently:
-			target_location = awareness_component.surroundings_component.surroundings_range.global_transform.origin
+			stop_walking()
 			change_state.emit("InspectState")
 			break

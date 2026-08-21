@@ -6,8 +6,10 @@
 [ext_resource type="Script" uid="uid://tco37h0hi88b" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/idle_state.gd" id="4_jwopc"]
 [ext_resource type="Script" uid="uid://belp7ymh5wvty" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/inspect_state.gd" id="5_4obio"]
 [ext_resource type="Script" uid="uid://21pgb0fay62o" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/interaction_state.gd" id="6_w1gur"]
+[ext_resource type="Script" uid="uid://cld4lfsls0i6i" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/flee_state.gd" id="7_w1gur"]
+[ext_resource type="Script" uid="uid://c7jlg6fr428cd" path="res://src/game_core/entity/npc/behaviour_component/behaviour_states/greet_state.gd" id="8_puavg"]
 
-[sub_resource type="Resource" id="Resource_jwopc"]
+[sub_resource type="Resource" id="Resource_6kqp2"]
 resource_local_to_scene = true
 script = ExtResource("2_sdvyu")
 max_health = 50.0
@@ -16,35 +18,42 @@ attack_damage = 10.0
 jump_force = 12.0
 metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4obio"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5vbtw"]
 resource_local_to_scene = true
 
-[sub_resource type="Resource" id="Resource_w1gur"]
+[sub_resource type="Resource" id="Resource_kifsb"]
 resource_local_to_scene = true
 script = ExtResource("3_vbxtw")
 metadata/_custom_type_script = "uid://bsii6mwdjwkv0"
 
-[sub_resource type="Resource" id="Resource_evl23"]
+[sub_resource type="Resource" id="Resource_j24em"]
 resource_local_to_scene = true
 script = ExtResource("4_jwopc")
 metadata/_custom_type_script = "uid://tco37h0hi88b"
 
-[sub_resource type="Resource" id="Resource_sdvyu"]
+[sub_resource type="Resource" id="Resource_20obg"]
 resource_local_to_scene = true
 script = ExtResource("5_4obio")
 
-[sub_resource type="Resource" id="Resource_vbxtw"]
+[sub_resource type="Resource" id="Resource_rqfda"]
 resource_local_to_scene = true
 script = ExtResource("6_w1gur")
 
+[sub_resource type="Resource" id="Resource_o6d8n"]
+script = ExtResource("7_w1gur")
+metadata/_custom_type_script = "uid://cld4lfsls0i6i"
+
+[sub_resource type="Resource" id="Resource_r1pqv"]
+script = ExtResource("8_puavg")
+
 [node name="Bean" unique_id=558103743 instance=ExtResource("1_evl23")]
-stats_component = SubResource("Resource_jwopc")
+stats_component = SubResource("Resource_6kqp2")
 
 [node name="EntityCollider" parent="." index="1" unique_id=205919405]
-shape = SubResource("CapsuleShape3D_4obio")
+shape = SubResource("CapsuleShape3D_5vbtw")
 
 [node name="MovementComponent" parent="." index="4" unique_id=1883015031]
-provider = SubResource("Resource_w1gur")
+provider = SubResource("Resource_kifsb")
 
 [node name="BehaviourComponent" parent="." index="9" unique_id=322738152]
-behaviour_states = Array[Object]([SubResource("Resource_evl23"), SubResource("Resource_sdvyu"), SubResource("Resource_vbxtw")])
+behaviour_states = Array[Object]([SubResource("Resource_j24em"), SubResource("Resource_20obg"), SubResource("Resource_rqfda"), SubResource("Resource_o6d8n"), SubResource("Resource_r1pqv")])

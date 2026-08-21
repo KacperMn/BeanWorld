@@ -9,5 +9,5 @@ func enter() -> void:
 	arrived = false
 
 func physics_update(delta: float) -> void:
-	if arrived == true:
-		change_state.emit("IdleState")
+	if arrived:
+		change_state.emit("GreetState")

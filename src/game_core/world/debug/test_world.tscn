@@ -38,6 +38,15 @@ albedo_texture_force_srgb = true
 albedo_texture_msdf = true
 roughness = 0.75
 
+[sub_resource type="Resource" id="Resource_2h823"]
+resource_local_to_scene = true
+script = ExtResource("3_72ytv")
+max_health = 50.0
+movement_speed = 10.0
+attack_damage = 10.0
+jump_force = 12.0
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
 [sub_resource type="Resource" id="Resource_72ytv"]
 resource_local_to_scene = true
 script = ExtResource("3_72ytv")
@@ -48,15 +57,6 @@ jump_force = 12.0
 metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
 
 [sub_resource type="Resource" id="Resource_w4g5o"]
-resource_local_to_scene = true
-script = ExtResource("3_72ytv")
-max_health = 50.0
-movement_speed = 10.0
-attack_damage = 10.0
-jump_force = 12.0
-metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
-
-[sub_resource type="Resource" id="Resource_twr8d"]
 resource_local_to_scene = true
 script = ExtResource("3_72ytv")
 max_health = 50.0
@@ -89,12 +89,12 @@ material = SubResource("StandardMaterial3D_t34gm")
 
 [node name="Bean" parent="." unique_id=558103743 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.084133, 0.0005002022, -20.884977)
-stats_component = SubResource("Resource_72ytv")
+stats_component = SubResource("Resource_2h823")
 
 [node name="Bean2" parent="." unique_id=1570325098 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.884281, 0.0004992485, -53.25045)
-stats_component = SubResource("Resource_w4g5o")
+stats_component = SubResource("Resource_72ytv")
 
 [node name="Bean3" parent="." unique_id=1352007238 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.578644, 0.0005002022, -0.29315805)
-stats_component = SubResource("Resource_twr8d")
+stats_component = SubResource("Resource_w4g5o")

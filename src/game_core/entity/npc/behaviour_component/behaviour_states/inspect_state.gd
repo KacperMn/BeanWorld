@@ -10,12 +10,12 @@ func enter() -> void:
 	inspect_timer = 2.0
 
 func physics_update(delta: float) -> void:
+	if check_if_should_check_out():
+		process_initial_reaction()
 	if inspect_timer >= 0.0:
 		inspect_timer -= delta
 	else:
 		change_state.emit(reaction_state)
-	if check_if_should_check_out():
-		process_initial_reaction()
 
 func process_initial_reaction() -> void:
 	if awareness_component.surroundings_component.surrounding_characters.size() == 1:
@@ -45,6 +45,7 @@ func process_single_reaction(surrounding_character: SurroundingCharacter) -> voi
 		reaction_state = "IdleState"
 
 func process_group_reaction() -> void:
+	# TODO: add crowd reaction
 	for surrounding_character in awareness_component.surroundings_component.surrounding_characters.values():
 		surrounding_character.relationship.interacted_recently = true
 		surrounding_character.checked_out = true
