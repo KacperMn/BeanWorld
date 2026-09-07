@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/game_core/characters/player/camera/modes/combat_camera_mode.gd" id="5_7q7ec"]
 [ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/game_core/characters/player/camera/modes/building_camera_mode.gd" id="6_lo3r8"]
 [ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component.gd" id="6_rekio"]
-[ext_resource type="Script" uid="uid://6afb53eyptj0" path="res://src/game_core/characters/player/player_movement_provider.gd" id="7_5iqw4"]
 [ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/game_core/characters/player/playmode_sm/playmode_sm.gd" id="7_hhaut"]
+[ext_resource type="Script" uid="uid://dtakaqlikhhma" path="res://src/game_core/characters/player/player_controller.gd" id="9_f5njo"]
 
 [sub_resource type="Resource" id="Resource_ppubm"]
 script = ExtResource("6_rekio")
 max_health = 100.0
 movement_speed = 10.0
 attack_damage = 10.0
-jump_force = 12.0
+jump_force = 5.0
 metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mhiu"]
@@ -219,9 +219,8 @@ metadata/_custom_type_script = "uid://xpa8vyal015t"
 script = ExtResource("6_lo3r8")
 metadata/_custom_type_script = "uid://d1beao0f5jn0c"
 
-[sub_resource type="Resource" id="Resource_tjcka"]
-script = ExtResource("7_5iqw4")
-metadata/_custom_type_script = "uid://6afb53eyptj0"
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5njo"]
+resource_local_to_scene = true
 
 [node name="Player" unique_id=558103743 instance=ExtResource("1_vmllx")]
 script = ExtResource("2_omdve")
@@ -370,9 +369,12 @@ exploration_mode = SubResource("Resource_3ptgk")
 combat_mode = SubResource("Resource_71eat")
 building_mode = SubResource("Resource_ryewx")
 
-[node name="MovementComponent" parent="." index="7" unique_id=1883015031]
-provider = SubResource("Resource_tjcka")
+[node name="EntityCollider" parent="." index="4" unique_id=205919405]
+shape = SubResource("CapsuleShape3D_f5njo")
 
-[node name="PlayModeSM" type="Node" parent="." index="11" unique_id=1895750621]
+[node name="PlayModeSM" type="Node" parent="." index="12" unique_id=1895750621]
 script = ExtResource("7_hhaut")
 metadata/_custom_type_script = "uid://dae261otlqwql"
+
+[node name="PlayerController" type="Node" parent="." index="13" unique_id=1231271199]
+script = ExtResource("9_f5njo")

@@ -1,1 +1,0 @@
-class_name Provider extends Resource

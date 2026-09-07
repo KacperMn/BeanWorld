@@ -10,13 +10,14 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	process_movement_behaviour()
-
+	
 func process_movement_behaviour() -> void:
-	movement_component.provider.path_position = navigation_agent.get_next_path_position()
-	if movement_component.provider.toggle_sprint != behaviour_component.current_state.should_be_running:
-		movement_component.provider.toggle_sprint = behaviour_component.current_state.should_be_running
+	var next := navigation_agent.get_next_path_position()
+	var dir := next - global_transform.origin
+	dir.y = 0.0
+	movement_component.set_move_direction(dir.normalized() if not navigation_agent.is_target_reached() else Vector3.ZERO)
+	movement_component.toggle_sprint(behaviour_component.current_state.should_be_running)
 	if navigation_agent.is_target_reached():
-		movement_component.provider.clear_target()
 		behaviour_component.arrived()
 
 func on_new_target_location(target_location: Vector3) -> void:

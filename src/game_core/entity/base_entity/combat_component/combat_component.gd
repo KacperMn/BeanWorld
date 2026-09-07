@@ -16,12 +16,12 @@ func enter_combat() -> void:
 		return
 	if !status_component.is_in_combat:
 		combat_timer.start()
-		status_component.is_in_combat = true
+		status_component.set_is_in_combat(true)
 		entered_combat.emit()
 	else:
 		combat_timer.start()
 
 func exit_combat() -> void:
 	if status_component.is_in_combat:
-		status_component.is_in_combat = false
+		status_component.set_is_in_combat(false)
 		left_combat.emit()

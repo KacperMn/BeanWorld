@@ -1,7 +1,7 @@
 class_name State extends Resource
 
 var state_name: String
-var provider: Provider
+
 signal change_state(new_state: String)
 signal exited_state(state_name: String)
 signal entered_state(state_name: String)

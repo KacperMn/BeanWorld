@@ -121,3 +121,7 @@ pause={
 3d_physics/layer_1="Entity"
 3d_physics/layer_2="Ground"
 3d_physics/layer_3="Other"
+
+[physics]
+
+3d/default_gravity=20.0

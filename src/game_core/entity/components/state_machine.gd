@@ -2,7 +2,6 @@ class_name StateMachine extends Node
 
 signal state_changed(new_state: State)
 
-@export var provider: Provider
 var states: Array = []
 var current_state: State
 
@@ -44,7 +43,6 @@ func add_state(state: State) -> void:
 	state.change_state.connect(self.transition_to)
 	state.entered_state.connect(self.handle_state_entered)
 	state.exited_state.connect(self.handle_state_exited)
-	state.provider = provider
 	states.append(state)
 
 func handle_state_entered(state: String) -> void:
@@ -56,9 +54,3 @@ func handle_state_exited(state: String) -> void:
 func add_states(state_array: Array[State]) -> void:
 	for state in state_array:
 		add_state(state)
-
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings: PackedStringArray = []
-	if not provider:
-		warnings.append("The State Machine is missing a provider")
-	return warnings
