@@ -1,8 +1,7 @@
 class_name DotEffect extends ActionEffect
 
-@export var amount_per_tick: float = 2.0
-@export var tick_count: int = 3
-@export var tick_interval: float = 1.0
+@export var damage: float = 2.0
+@export var duration: int = 3
 
-func apply(target: Entity, instigator: Character) -> void:
-	target.apply_dot(amount_per_tick, tick_count, tick_interval)
+func apply(target: Entity, instigator: Character = null) -> void:
+	target.apply_status_effect(DamageStatusEffect.new(target, instigator, damage, duration))

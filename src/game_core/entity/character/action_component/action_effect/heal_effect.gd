@@ -5,5 +5,5 @@ class_name HealEffect extends ActionEffect
 func _init() -> void:
 	enters_combat = false
 
-func apply(target: Entity, instigator: Character) -> void:
+func apply(target: Entity, _instigator: Character = null) -> void:
 	target.heal(amount)

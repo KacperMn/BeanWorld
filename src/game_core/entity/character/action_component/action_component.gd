@@ -16,8 +16,8 @@ func setup(owner_node: Character, facing: Node3D) -> void:
 	var facing_node: Node3D = facing
 
 	var slot_scenes: Dictionary[String, PackedScene] = {
-		"primary": primary_action,
-		"secondary": secondary_action,
+		"primary_action": primary_action,
+		"secondary_action": secondary_action,
 		"ability_1": ability_1,
 		"ability_2": ability_2,
 		"ability_3": ability_3,

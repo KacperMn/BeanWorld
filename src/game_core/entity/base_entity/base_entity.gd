@@ -14,15 +14,19 @@ class_name Entity extends CharacterBody3D
 func _ready() -> void:
 	setup_health_component()
 	combat_component.setup(status_component)
+	stats_component.initialize_stats()
 	movement_component.setup(stats_component, status_component, self as CharacterBody3D)
 	setup_hud()
 
-func hurt(amount: float, instigator: Node3D = null) -> void:
+func hurt(amount: float, instigator: Entity = null) -> void:
 	if status_component.is_invulnerable or status_component.is_alive == false:
 		return
 	health_component.hurt(amount)
 	if instigator:
 		combat_component.enter_combat()
+
+func apply_status_effect(effect: StatusEffect) -> void:
+	add_child(effect)
 
 func revive() -> void:
 	if status_component.is_alive:
@@ -43,5 +47,5 @@ func setup_health_component() -> void:
 	health_component.died.connect(_on_death)
 
 func setup_hud() -> void:
-	hud.setup(stats_component.health_stat.max_value, shape)
+	hud.setup(stats_component.health_stat.max_value, stats_component.health_stat.current_value, shape)
 	health_component.health_changed.connect(hud._on_health_changed)

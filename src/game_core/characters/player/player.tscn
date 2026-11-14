@@ -3,11 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/game_core/entity/character/character.tscn" id="1_vmllx"]
 [ext_resource type="Script" uid="uid://chk0uwv23k0nq" path="res://src/game_core/characters/player/player.gd" id="2_omdve"]
 [ext_resource type="PackedScene" uid="uid://byn7sudak1bnk" path="res://src/game_core/characters/player/camera/camera_controller.tscn" id="3_bes5w"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="3_p1lpg"]
 [ext_resource type="Script" uid="uid://cbd8nk26wor8o" path="res://src/game_core/characters/player/camera/modes/exploration_camera_mode.gd" id="4_ynxpe"]
 [ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/game_core/characters/player/camera/modes/combat_camera_mode.gd" id="5_7q7ec"]
 [ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/game_core/characters/player/camera/modes/building_camera_mode.gd" id="6_lo3r8"]
 [ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/game_core/characters/player/playmode_sm/playmode_sm.gd" id="7_hhaut"]
+[ext_resource type="PackedScene" uid="uid://8bs4vemcqjt0" path="res://src/game_core/entity/character/action_component/actions/melee_dot.tscn" id="8_e8n4k"]
+[ext_resource type="PackedScene" uid="uid://behmlftipm5en" path="res://src/game_core/entity/character/action_component/actions/aoe_basic_attack.tscn" id="8_rekio"]
 [ext_resource type="Script" uid="uid://dtakaqlikhhma" path="res://src/game_core/characters/player/player_controller.gd" id="9_f5njo"]
+
+[sub_resource type="Resource" id="Resource_rekio"]
+resource_local_to_scene = true
+script = ExtResource("3_p1lpg")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mhiu"]
 resource_name = "Material.001"
@@ -210,11 +218,12 @@ metadata/_custom_type_script = "uid://xpa8vyal015t"
 script = ExtResource("6_lo3r8")
 metadata/_custom_type_script = "uid://d1beao0f5jn0c"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3y4gi"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5iqw4"]
 resource_local_to_scene = true
 
 [node name="Player" unique_id=558103743 instance=ExtResource("1_vmllx")]
 script = ExtResource("2_omdve")
+stats_component = SubResource("Resource_rekio")
 
 [node name="Armature" type="Node3D" parent="." index="0" unique_id=548220542]
 transform = Transform3D(-0.272, 0, -9.452337e-08, 0, 0.4, 0, 4.1070862e-08, 0, -0.626, 0.00535089, 0.3136379, 0.0103911)
@@ -360,7 +369,11 @@ combat_mode = SubResource("Resource_71eat")
 building_mode = SubResource("Resource_ryewx")
 
 [node name="EntityCollider" parent="." index="4" unique_id=205919405]
-shape = SubResource("CapsuleShape3D_3y4gi")
+shape = SubResource("CapsuleShape3D_5iqw4")
+
+[node name="ActionComponent" parent="." index="11" unique_id=2011348476]
+primary_action = ExtResource("8_rekio")
+secondary_action = ExtResource("8_e8n4k")
 
 [node name="PlayModeSM" type="Node" parent="." index="12" unique_id=1895750621]
 script = ExtResource("7_hhaut")

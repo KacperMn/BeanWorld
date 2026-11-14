@@ -6,7 +6,7 @@ class_name Player extends Character
 
 func _ready() -> void:
 	facing_direction_node = camera_controller.camera_arm
-	player_controller.setup(facing_direction_node, movement_component) # was: movement_component.movement_sm.camera_arm = ...
+	player_controller.setup(facing_direction_node, movement_component, action_component)
 	playmode_sm.setup_sm()
 	setup_camera_controller()
 	super()
