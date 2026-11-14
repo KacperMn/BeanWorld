@@ -43,5 +43,5 @@ func setup_health_component() -> void:
 	health_component.died.connect(_on_death)
 
 func setup_hud() -> void:
-	hud.setup(stats_component.max_health, shape)
+	hud.setup(stats_component.health_stat.max_value, shape)
 	health_component.health_changed.connect(hud._on_health_changed)

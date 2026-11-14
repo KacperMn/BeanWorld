@@ -1,0 +1,1 @@
+class_name ArmorStat extends Stat

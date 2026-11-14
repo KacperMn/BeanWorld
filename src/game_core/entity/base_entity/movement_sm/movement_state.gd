@@ -25,7 +25,7 @@ func handle_gravity(delta: float) -> void:
 
 func rotate_entity_to_velocity(delta: float) -> void:
 	var vel := Vector2(character_body.velocity.x, character_body.velocity.z)
-	if vel.length() < stats_component.movement_speed * 0.15:
+	if vel.length() < stats_component.movement_speed_stat.current_value * 0.15:
 		return
 	var target_angle := atan2(-vel.x, -vel.y)
-	character_body.rotation.y = lerp_angle(character_body.rotation.y, target_angle, stats_component.movement_speed * delta)
+	character_body.rotation.y = lerp_angle(character_body.rotation.y, target_angle, stats_component.movement_speed_stat.current_value * delta)

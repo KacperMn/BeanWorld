@@ -21,6 +21,13 @@ var target_location: Vector3:
 		target_location = value
 		new_target_location.emit(target_location)
 
+func _ready() -> void:
+	awareness_component.surroundings_component.character_entered.connect(_on_character_entered)
+
+func _on_character_entered(character: Character) -> void:
+	## TODO: this is a temporary solution to make sure the character is aware of the surrounding characters when entering the state
+	pass
+
 func stop_walking() -> void:
 	target_location = awareness_component.global_transform.origin
 

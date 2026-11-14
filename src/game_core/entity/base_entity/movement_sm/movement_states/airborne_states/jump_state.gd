@@ -5,4 +5,4 @@ func _init() -> void:
 
 func enter() -> void:
 	super()
-	character_body.velocity.y += stats_component.jump_force
+	character_body.velocity.y += stats_component.jump_force_stat.current_value

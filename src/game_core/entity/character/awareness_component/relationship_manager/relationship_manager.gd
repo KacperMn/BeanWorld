@@ -16,7 +16,7 @@ func get_relationship(other_character: Character) -> Relationship:
 func process_first_impression(other_character: Character) -> Relationship:
     var relationship = Relationship.new()
     add_relationship(other_character, relationship)
-    if other_character.stats_component.attack_damage > owner_node.stats_component.attack_damage:
+    if other_character.stats_component.attack_damage_stat.current_value > owner_node.stats_component.attack_damage_stat.current_value:
         relationship.change_fear(-10.0)
     else:
         relationship.change_fear(10.0)

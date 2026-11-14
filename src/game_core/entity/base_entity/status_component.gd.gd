@@ -11,6 +11,11 @@ func _init() -> void:
 
 func set_is_alive(value: bool) -> void:
     is_alive = value
+    if is_alive == false:
+        set_is_in_combat(false)
+        set_is_invulnerable(true)
+    else:
+        set_is_invulnerable(false)
 
 func set_is_in_combat(value: bool) -> void:
     is_in_combat = value

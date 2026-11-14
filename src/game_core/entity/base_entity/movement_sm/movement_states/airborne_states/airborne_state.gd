@@ -9,8 +9,8 @@ func handle(delta: float) -> void:
 
 func apply_air_control(delta: float) -> void:
 	var _air_speed: float = Vector2(character_body.velocity.x, character_body.velocity.z).length()
-	if _air_speed < stats_component.movement_speed:
-		_air_speed = stats_component.movement_speed
+	if _air_speed < stats_component.movement_speed_stat.current_value:
+		_air_speed = stats_component.movement_speed_stat.current_value
 	var direction = movement_sm.get_move_direction()
 	character_body.velocity.x = move_toward(character_body.velocity.x, direction.x * _air_speed, _air_speed * delta * 10)
 	character_body.velocity.z = move_toward(character_body.velocity.z, direction.z * _air_speed, _air_speed * delta * 10)

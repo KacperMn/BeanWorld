@@ -1,6 +1,6 @@
 class_name HealthComponent extends Node
 
-signal health_changed(old_value: float, new_value: float)
+signal health_changed(new_value: float)
 signal died()
 
 var stats_component: StatsComponent
@@ -13,7 +13,7 @@ func hurt(amount: float) -> void:
 	if amount <= 0.0:
 		return
 	change_health(-amount)
-	if stats_component.current_health <= 0.0:
+	if stats_component.health_stat.current_value <= 0.0:
 		trigger_death()
 
 func heal(amount: float) -> void:
@@ -22,12 +22,11 @@ func heal(amount: float) -> void:
 	change_health(amount)
 
 func revive() -> void:
-	stats_component.set_current_health(stats_component.max_health)
+	stats_component.health_stat.set_value_to_max()
 
 func change_health(amount: float) -> void:
-	var old_health: float = stats_component.current_health
-	stats_component.set_current_health(clampf(stats_component.current_health + amount, 0.0, stats_component.max_health))
-	health_changed.emit(old_health, stats_component.current_health)
+	stats_component.health_stat.change_value(amount)
+	health_changed.emit(stats_component.health_stat.current_value)
 
 func trigger_death() -> void:
 	died.emit()

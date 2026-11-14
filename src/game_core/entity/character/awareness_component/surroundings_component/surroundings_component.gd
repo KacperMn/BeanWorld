@@ -1,6 +1,7 @@
 class_name SurroundingsComponent extends Node3D
 
 @onready var surroundings_range: RangeArea = $RangeArea
+signal character_entered(character: Character)
 
 var surrounding_characters: Dictionary[Character, SurroundingCharacter] = {}
 const AWARENESS_GRACE_PERIOD: float = 3.0
@@ -29,6 +30,7 @@ func _on_range_area_body_entered(body: Node3D) -> void:
 		return
 	if body is Character:
 		var character: Character = body
+		character_entered.emit(character)
 		if surrounding_characters.has(character):
 			surrounding_characters[character].remaining_time = -1.0
 		else:

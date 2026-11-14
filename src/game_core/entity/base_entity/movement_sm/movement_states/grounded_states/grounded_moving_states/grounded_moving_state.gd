@@ -6,7 +6,7 @@ func handle(delta: float) -> void:
 	if movement_sm.get_move_direction() == Vector3.ZERO:
 		change_state.emit("StandState")
 		return
-	calculate_movement(delta, stats_component.movement_speed * multiplier)
+	calculate_movement(delta, stats_component.movement_speed_stat.current_value * multiplier)
 	rotate_entity_to_velocity(delta)
 	super(delta)
 
