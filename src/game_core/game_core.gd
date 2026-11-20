@@ -9,13 +9,14 @@ signal exit_game
 
 var test_world: Node
 
+var paused: bool = true
+
 func _ready() -> void:
-	pause_menu.back_to_main.connect(func(): back_to_main.emit())
-	pause_menu.exit_game.connect(func(): exit_game.emit())
+	pause_menu.visible = paused
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and test_world != null:
-		pause_menu.toggle_pause()
+		toggle_game_paused()
 		get_viewport().set_input_as_handled()
 
 func load_game(savefile: String) -> void:
@@ -23,12 +24,28 @@ func load_game(savefile: String) -> void:
 		test_world = TEST_WORLD_UID.instantiate()
 		add_child(test_world)
 	else:
-		pass # start_game_from_save_file equivalent
+		pass
+	paused = true
+	toggle_game_paused()
 
 func unload_game() -> void:
 	if test_world:
 		test_world.queue_free()
 		test_world = null
 
+func toggle_game_paused() -> void:
+	paused = !paused
+	if paused:
+		pause_menu.visible = paused
+		get_tree().paused = paused
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		pause_menu.visible = paused
+		get_tree().paused = paused
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func on_back_to_main() -> void:
-	pass
+	back_to_main.emit()
+
+func quit() -> void:
+	exit_game.emit()

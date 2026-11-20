@@ -18,15 +18,27 @@ func _ready() -> void:
 	movement_component.setup(stats_component, status_component, self as CharacterBody3D)
 	setup_hud()
 
+func apply_status_effect(effect: StatusEffect) -> void:
+	add_child(effect)
+
 func hurt(amount: float, instigator: Entity = null) -> void:
 	if status_component.is_invulnerable or status_component.is_alive == false:
 		return
 	health_component.hurt(amount)
 	if instigator:
 		combat_component.enter_combat()
+	
+func deal_damage(amount: float, target: Entity) -> void:
+	target.hurt(amount, self)
+	combat_component.enter_combat()
 
-func apply_status_effect(effect: StatusEffect) -> void:
-	add_child(effect)
+func heal(amount: float) -> void:
+	if status_component.is_alive == false:
+		return
+	health_component.heal(amount)
+
+func receive_healing(amount: float, _instigator: Entity = null) -> void:
+	heal(amount)
 
 func revive() -> void:
 	if status_component.is_alive:
@@ -34,18 +46,11 @@ func revive() -> void:
 	status_component.set_is_alive(true)
 	health_component.revive()
 
-func heal(amount: float) -> void:
-	if status_component.is_alive == false:
-		return
-	health_component.heal(amount)
-
 func _on_death() -> void:
 	status_component.set_is_alive(false)
 
 func setup_health_component() -> void:
 	health_component.setup(stats_component)
-	health_component.died.connect(_on_death)
 
 func setup_hud() -> void:
 	hud.setup(stats_component.health_stat.max_value, stats_component.health_stat.current_value, shape)
-	health_component.health_changed.connect(hud._on_health_changed)

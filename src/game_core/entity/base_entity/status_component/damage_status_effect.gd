@@ -8,4 +8,4 @@ func _init(_target: Entity, _instigator: Entity, _damage_amount: float = 10.0, _
 
 func apply() -> void:
     if target and target.is_inside_tree():
-        target.hurt(damage_amount, instigator)
+        instigator.deal_damage(damage_amount, target)

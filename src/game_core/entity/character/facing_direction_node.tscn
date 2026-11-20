@@ -8,9 +8,15 @@
 script = ExtResource("1_ji3d1")
 
 [node name="FacingRayCast" type="RayCast3D" parent="." unique_id=1852298326]
+target_position = Vector3(0, 0, -1)
 hit_from_inside = true
-debug_shape_custom_color = Color(0, 0.114607535, 0.99998623, 1)
+debug_shape_custom_color = Color(0.0050046355, 0.04627362, 0.99999994, 1)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=171796356]
 radius = 0.36454487
+material = SubResource("StandardMaterial3D_ji3d1")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1953735552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.708784)
+radius = 0.2
 material = SubResource("StandardMaterial3D_ji3d1")

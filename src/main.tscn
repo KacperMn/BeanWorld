@@ -7,3 +7,6 @@
 script = ExtResource("1_5q4o7")
 
 [node name="GameCore" parent="." unique_id=793640333 instance=ExtResource("2_gh0ne")]
+
+[connection signal="back_to_main" from="GameCore" to="." method="_on_exit_to_main_menu"]
+[connection signal="exit_game" from="GameCore" to="." method="_on_quit"]

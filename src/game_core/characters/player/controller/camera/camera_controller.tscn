@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://unckgrc6v5es"]
 
-[ext_resource type="Script" uid="uid://bmhgquvodfa1f" path="res://src/game_core/characters/player/camera/camera_controller.gd" id="1_p8ul7"]
+[ext_resource type="Script" uid="uid://bmhgquvodfa1f" path="res://src/game_core/characters/player/controller/camera/camera_controller.gd" id="1_p8ul7"]
 
 [node name="CameraController" type="Node3D" unique_id=1815940602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("1_p8ul7")
 metadata/_custom_type_script = "uid://bmhgquvodfa1f"
 

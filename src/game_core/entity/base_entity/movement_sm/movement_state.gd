@@ -13,10 +13,6 @@ func physics_update(delta: float) -> void:
 func handle(_delta: float) -> void:
 	pass
 
-func enter() -> void:
-	print("Entering state: %s" % state_name)
-	super()
-
 func handle_gravity(delta: float) -> void:
 	if not character_body.is_on_floor():
 		character_body.velocity.y -= gravity * delta

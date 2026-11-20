@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/game_core/entity/character/character.tscn" id="1_vmllx"]
 [ext_resource type="Script" uid="uid://chk0uwv23k0nq" path="res://src/game_core/characters/player/player.gd" id="2_omdve"]
-[ext_resource type="PackedScene" uid="uid://unckgrc6v5es" path="res://src/game_core/characters/player/camera/camera_controller.tscn" id="3_bes5w"]
+[ext_resource type="PackedScene" uid="uid://unckgrc6v5es" path="res://src/game_core/characters/player/controller/camera/camera_controller.tscn" id="3_bes5w"]
 [ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="3_p1lpg"]
-[ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/game_core/characters/player/playmode_sm/playmode_sm.gd" id="7_hhaut"]
-[ext_resource type="Script" uid="uid://dtakaqlikhhma" path="res://src/game_core/characters/player/player_controller.gd" id="9_f5njo"]
+[ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/game_core/characters/player/controller/playmode_sm/playmode_sm.gd" id="7_hhaut"]
+[ext_resource type="Script" uid="uid://dtakaqlikhhma" path="res://src/game_core/characters/player/controller/player_controller.gd" id="9_f5njo"]
 [ext_resource type="PackedScene" uid="uid://dvm5jlxoatx1n" path="res://src/game_core/entity/character/action_component/actions/aoe_target_attack.tscn" id="10_rekio"]
 [ext_resource type="PackedScene" uid="uid://bttlh7om2v81j" path="res://src/game_core/entity/character/action_component/actions/single_target_attack.tscn" id="12_rekio"]
 
@@ -358,7 +358,10 @@ secondary_action = ExtResource("10_rekio")
 
 [node name="PlayModeSM" type="Node" parent="." index="12" unique_id=1895750621]
 script = ExtResource("7_hhaut")
-metadata/_custom_type_script = "uid://dae261otlqwql"
 
 [node name="PlayerController" type="Node" parent="." index="13" unique_id=1231271199]
 script = ExtResource("9_f5njo")
+
+[connection signal="entered_combat" from="CombatComponent" to="PlayModeSM" method="_on_combat_entered"]
+[connection signal="left_combat" from="CombatComponent" to="PlayModeSM" method="_on_combat_left"]
+[connection signal="state_changed" from="PlayModeSM" to="CameraController" method="_on_playmode_state_changed"]

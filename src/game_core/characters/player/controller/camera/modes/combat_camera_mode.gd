@@ -5,7 +5,6 @@ class_name CombatCameraMode extends CameraMode
 
 
 func on_enter() -> void:
-	print("Entered combat camera mode")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	distance = 10.0
 

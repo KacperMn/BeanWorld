@@ -35,3 +35,6 @@ script = ExtResource("11_k5xkk")
 script = ExtResource("6_8e1kg")
 
 [node name="CombatComponent" parent="." unique_id=1522242131 instance=ExtResource("7_a1amo")]
+
+[connection signal="died" from="HealthComponent" to="." method="_on_death"]
+[connection signal="health_changed" from="HealthComponent" to="EntityHUD" method="_on_health_changed"]
