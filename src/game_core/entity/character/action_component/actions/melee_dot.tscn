@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://8bs4vemcqjt0"]
 
-[ext_resource type="PackedScene" uid="uid://b88m0f4kfvhqw" path="res://src/game_core/entity/character/action_component/actions/base_actions/melee_attack.tscn" id="1_dhu4q"]
+[ext_resource type="PackedScene" uid="uid://djdmnbgwwdwvu" path="res://src/game_core/entity/character/action_component/actions/base_actions/aoe_target_action.tscn" id="1_mphsk"]
 [ext_resource type="Script" uid="uid://cfp5rj4noibc5" path="res://src/game_core/entity/character/action_component/action_effect/action_effect.gd" id="2_mphsk"]
 [ext_resource type="Script" uid="uid://ptm6grjbvgqd" path="res://src/game_core/entity/character/action_component/action_effect/dot_effect.gd" id="3_101mc"]
 
-[sub_resource type="Resource" id="Resource_bk0u6"]
+[sub_resource type="Resource" id="Resource_v5sjk"]
 script = ExtResource("3_101mc")
 damage = 5.0
-duration = 4
+duration = 5
 metadata/_custom_type_script = "uid://ptm6grjbvgqd"
 
-[node name="MeleeDOT" unique_id=1814635261 instance=ExtResource("1_dhu4q")]
-effects = Array[ExtResource("2_mphsk")]([SubResource("Resource_bk0u6")])
+[node name="MeleeDOT" unique_id=1814635261 instance=ExtResource("1_mphsk")]
+effects = Array[ExtResource("2_mphsk")]([SubResource("Resource_v5sjk")])

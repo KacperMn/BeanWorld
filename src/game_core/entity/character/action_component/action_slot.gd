@@ -4,13 +4,11 @@ signal phase_changed(previous: String, current: String)
 signal casting_changed(active: bool)
 signal combat_entered
 
-var slot_name: String = ""
 var current_action: Action
 var owner_entity: Character
 var _facing_node: Node3D
 
-func setup(action_scene: PackedScene, p_slot_name: String, owner_node: Character, facing_node: Node3D) -> void:
-	slot_name = p_slot_name
+func setup(action_scene: PackedScene, owner_node: Character, facing_node: Node3D) -> void:
 	owner_entity = owner_node
 	_facing_node = facing_node
 
@@ -38,8 +36,7 @@ func is_channeling() -> bool:
 		and current_action.phase == ActionPhase.ACTIVE
 
 func get_forward() -> Vector3:
-	var node := _facing_node if _facing_node else self
-	return -node.global_transform.basis.z
+	return -_facing_node.global_transform.basis.z
 
 func _on_action_phase_changed(previous: String, current: String) -> void:
 	phase_changed.emit(previous, current)

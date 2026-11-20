@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://yl0wjdar65o5"]
+
+[ext_resource type="Script" uid="uid://b37cehg1h1ptb" path="res://src/game_core/entity/character/facing_direction_node.gd" id="1_ji3d1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji3d1"]
+
+[node name="FacingDirectionNode" type="Node3D" unique_id=257529995]
+script = ExtResource("1_ji3d1")
+
+[node name="FacingRayCast" type="RayCast3D" parent="." unique_id=1852298326]
+hit_from_inside = true
+debug_shape_custom_color = Color(0, 0.114607535, 0.99998623, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=171796356]
+radius = 0.36454487
+material = SubResource("StandardMaterial3D_ji3d1")

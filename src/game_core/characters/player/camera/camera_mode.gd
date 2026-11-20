@@ -11,11 +11,11 @@ class_name CameraMode extends Resource
 @export var max_pitch: float = 40.0
 
 # called once when this mode becomes active
-func on_enter(_controller: CameraController) -> void:
+func on_enter() -> void:
     pass
 
 # called once when leaving this mode
-func on_exit(_controller: CameraController) -> void:
+func on_exit() -> void:
     pass
 
 # called every physics frame

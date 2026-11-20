@@ -2,20 +2,31 @@
 
 [ext_resource type="Script" uid="uid://cdae1xa143eul" path="res://src/game_core/entity/character/character.gd" id="1_ein7y"]
 [ext_resource type="PackedScene" uid="uid://b0gnhue7i3ie" path="res://src/game_core/entity/base_entity/base_entity.tscn" id="1_tsf1a"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="3_px743"]
 [ext_resource type="Script" uid="uid://mibyfpkula2e" path="res://src/game_core/entity/character/action_component/action_component.gd" id="5_px743"]
 [ext_resource type="PackedScene" uid="uid://blphhc4lqyxm3" path="res://src/game_core/entity/character/awareness_component/awareness_component.tscn" id="5_tprp4"]
+[ext_resource type="PackedScene" uid="uid://yl0wjdar65o5" path="res://src/game_core/entity/character/facing_direction_node.tscn" id="6_px743"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aihny"]
+[sub_resource type="Resource" id="Resource_px743"]
+resource_local_to_scene = true
+script = ExtResource("3_px743")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8yhq"]
 resource_local_to_scene = true
 
 [node name="Character" unique_id=558103743 instance=ExtResource("1_tsf1a")]
 script = ExtResource("1_ein7y")
+stats_component = SubResource("Resource_px743")
 
 [node name="EntityCollider" parent="." index="0" unique_id=205919405]
-shape = SubResource("CapsuleShape3D_aihny")
+shape = SubResource("CapsuleShape3D_k8yhq")
 
 [node name="AwarenessComponent" parent="." index="6" unique_id=980788632 instance=ExtResource("5_tprp4")]
 
 [node name="ActionComponent" type="Node3D" parent="." index="7" unique_id=2011348476]
 script = ExtResource("5_px743")
 metadata/_custom_type_script = "uid://mibyfpkula2e"
+
+[node name="FacingDirectionNode" parent="." index="8" unique_id=257529995 instance=ExtResource("6_px743")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

@@ -2,18 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/game_core/entity/character/character.tscn" id="1_pi2gw"]
 [ext_resource type="Script" uid="uid://cd5jn658agumj" path="res://src/game_core/entity/npc/npc.gd" id="2_gdo3s"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="3_rrst7"]
 [ext_resource type="Script" uid="uid://cn7hc63padrv7" path="res://src/game_core/entity/npc/behaviour_component/behaviour_component.gd" id="6_jsdbf"]
+
+[sub_resource type="Resource" id="Resource_toyg5"]
+resource_local_to_scene = true
+script = ExtResource("3_rrst7")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vtnle"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md6d6"]
 albedo_color = Color(0.8785628, 0.507918, 0.39772484, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8bgs"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rrst7"]
 resource_local_to_scene = true
 
 [node name="NPC" unique_id=558103743 instance=ExtResource("1_pi2gw")]
 script = ExtResource("2_gdo3s")
+stats_component = SubResource("Resource_toyg5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1758402360]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -21,7 +28,7 @@ mesh = SubResource("CapsuleMesh_vtnle")
 surface_material_override/0 = SubResource("StandardMaterial3D_md6d6")
 
 [node name="EntityCollider" parent="." index="1" unique_id=205919405]
-shape = SubResource("CapsuleShape3D_y8bgs")
+shape = SubResource("CapsuleShape3D_rrst7")
 
 [node name="BehaviourComponent" type="Node" parent="." index="9" unique_id=322738152]
 script = ExtResource("6_jsdbf")

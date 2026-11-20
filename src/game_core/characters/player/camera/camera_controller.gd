@@ -1,8 +1,8 @@
 class_name CameraController extends Node3D
 
-@export var exploration_mode: ExplorationCameraMode
-@export var combat_mode: CombatCameraMode
-@export var building_mode: BuildingCameraMode
+@onready var exploration_mode: ExplorationCameraMode = ExplorationCameraMode.new()
+@onready var combat_mode: CombatCameraMode = CombatCameraMode.new()
+@onready var building_mode: BuildingCameraMode = BuildingCameraMode.new()
 
 # exposed so modes can read/write them directly
 var yaw: float = 0.0
@@ -28,9 +28,9 @@ func _ready() -> void:
 
 func set_mode(mode: CameraMode, animate: bool = true) -> void:
 	if _current_mode:
-		_current_mode.on_exit(self)
+		_current_mode.on_exit()
 	_current_mode = mode
-	_current_mode.on_enter(self)
+	_current_mode.on_enter()
 
 	if _tween:
 		_tween.kill()
@@ -67,3 +67,8 @@ func _apply_active_values() -> void:
 	camera_boom.spring_length = _active_distance
 	camera_boom.rotation.x = pitch
 	camera_arm.rotation.y = yaw
+	target.facing_direction_node.facing_ray.target_position = get_position_opposite_camera_direction(target.stats_component.attack_range_stat.current_value)
+
+func get_position_opposite_camera_direction(distance: float) -> Vector3:
+	#TODO: FIX THIS
+	return global_position + camera_boom.global_transform.basis.z.normalized() * distance

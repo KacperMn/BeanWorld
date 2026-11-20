@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvm5jlxoatx1n"]
+
+[ext_resource type="PackedScene" uid="uid://djdmnbgwwdwvu" path="res://src/game_core/entity/character/action_component/actions/base_actions/aoe_target_action.tscn" id="1_qtsg3"]
+[ext_resource type="Script" uid="uid://cfp5rj4noibc5" path="res://src/game_core/entity/character/action_component/action_effect/action_effect.gd" id="2_yalx8"]
+[ext_resource type="Script" uid="uid://jyvenp865rqi" path="res://src/game_core/entity/character/action_component/action_effect/damage_effect.gd" id="3_8uhwt"]
+
+[sub_resource type="Resource" id="Resource_f5njo"]
+script = ExtResource("3_8uhwt")
+metadata/_custom_type_script = "uid://jyvenp865rqi"
+
+[node name="AOETargetAttack" unique_id=1814635261 instance=ExtResource("1_qtsg3")]
+effects = Array[ExtResource("2_yalx8")]([SubResource("Resource_f5njo")])

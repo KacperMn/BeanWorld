@@ -1,6 +1,4 @@
-class_name MeleeAttack extends Action
-
-@export var effects: Array[ActionEffect] = []
+class_name AoeTargetAction extends Action
 
 @onready var range_area: RangeArea = $RangeArea
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1j8jtmg0krv3" path="res://src/game_core/characters/player/player.tscn" id="1_cw1nv"]
 [ext_resource type="PackedScene" uid="uid://c5dow4mguclni" path="res://src/game_core/characters/bean/bean.tscn" id="2_2h823"]
+[ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="2_72ytv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxppu"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -37,6 +38,26 @@ albedo_texture_force_srgb = true
 albedo_texture_msdf = true
 roughness = 0.75
 
+[sub_resource type="Resource" id="Resource_2h823"]
+resource_local_to_scene = true
+script = ExtResource("2_72ytv")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="Resource" id="Resource_72ytv"]
+resource_local_to_scene = true
+script = ExtResource("2_72ytv")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="Resource" id="Resource_w4g5o"]
+resource_local_to_scene = true
+script = ExtResource("2_72ytv")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
+[sub_resource type="Resource" id="Resource_twr8d"]
+resource_local_to_scene = true
+script = ExtResource("2_72ytv")
+metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
+
 [node name="test_world" type="Node3D" unique_id=802857313]
 process_mode = 1
 
@@ -58,12 +79,16 @@ size = Vector3(178.69308, 0.001, 295.17285)
 material = SubResource("StandardMaterial3D_t34gm")
 
 [node name="Player" parent="NavigationRegion3D" unique_id=128945814 instance=ExtResource("1_cw1nv")]
+stats_component = SubResource("Resource_2h823")
 
 [node name="Bean" parent="." unique_id=558103743 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.084133, 0.0005002022, -20.884977)
+stats_component = SubResource("Resource_72ytv")
 
 [node name="Bean2" parent="." unique_id=1570325098 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.884281, 0.0004992485, -53.25045)
+stats_component = SubResource("Resource_w4g5o")
 
 [node name="Bean3" parent="." unique_id=1352007238 instance=ExtResource("2_2h823")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.578644, 0.0005002022, -0.29315805)
+stats_component = SubResource("Resource_twr8d")

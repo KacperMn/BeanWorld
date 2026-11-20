@@ -1,5 +1,7 @@
 class_name Action extends Node3D
 
+@export var effects: Array[ActionEffect] = []
+
 signal phase_changed(previous: String, current: String)
 signal on_casting(active: bool)
 signal combat_entered

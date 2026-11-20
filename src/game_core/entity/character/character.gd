@@ -1,6 +1,6 @@
 class_name Character extends Entity
 
-@onready var facing_direction_node: Node3D = self
+@onready var facing_direction_node: FacingDirectionNode = $FacingDirectionNode
 @onready var action_component: ActionComponent = $ActionComponent
 @onready var awareness_component: AwarenessComponent = $AwarenessComponent
 

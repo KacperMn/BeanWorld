@@ -2,17 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dblmm86gfsrwj" path="res://src/game_core/entity/character/character.tscn" id="1_vmllx"]
 [ext_resource type="Script" uid="uid://chk0uwv23k0nq" path="res://src/game_core/characters/player/player.gd" id="2_omdve"]
-[ext_resource type="PackedScene" uid="uid://byn7sudak1bnk" path="res://src/game_core/characters/player/camera/camera_controller.tscn" id="3_bes5w"]
+[ext_resource type="PackedScene" uid="uid://unckgrc6v5es" path="res://src/game_core/characters/player/camera/camera_controller.tscn" id="3_bes5w"]
 [ext_resource type="Script" uid="uid://bqwujd4cjcmh5" path="res://src/game_core/entity/base_entity/stats_component/stats_component.gd" id="3_p1lpg"]
-[ext_resource type="Script" uid="uid://cbd8nk26wor8o" path="res://src/game_core/characters/player/camera/modes/exploration_camera_mode.gd" id="4_ynxpe"]
-[ext_resource type="Script" uid="uid://xpa8vyal015t" path="res://src/game_core/characters/player/camera/modes/combat_camera_mode.gd" id="5_7q7ec"]
-[ext_resource type="Script" uid="uid://d1beao0f5jn0c" path="res://src/game_core/characters/player/camera/modes/building_camera_mode.gd" id="6_lo3r8"]
 [ext_resource type="Script" uid="uid://dae261otlqwql" path="res://src/game_core/characters/player/playmode_sm/playmode_sm.gd" id="7_hhaut"]
-[ext_resource type="PackedScene" uid="uid://8bs4vemcqjt0" path="res://src/game_core/entity/character/action_component/actions/melee_dot.tscn" id="8_e8n4k"]
-[ext_resource type="PackedScene" uid="uid://behmlftipm5en" path="res://src/game_core/entity/character/action_component/actions/aoe_basic_attack.tscn" id="8_rekio"]
 [ext_resource type="Script" uid="uid://dtakaqlikhhma" path="res://src/game_core/characters/player/player_controller.gd" id="9_f5njo"]
+[ext_resource type="PackedScene" uid="uid://dvm5jlxoatx1n" path="res://src/game_core/entity/character/action_component/actions/aoe_target_attack.tscn" id="10_rekio"]
+[ext_resource type="PackedScene" uid="uid://bttlh7om2v81j" path="res://src/game_core/entity/character/action_component/actions/single_target_attack.tscn" id="12_rekio"]
 
-[sub_resource type="Resource" id="Resource_rekio"]
+[sub_resource type="Resource" id="Resource_3y4gi"]
 resource_local_to_scene = true
 script = ExtResource("3_p1lpg")
 metadata/_custom_type_script = "uid://bqwujd4cjcmh5"
@@ -206,26 +203,16 @@ _data = {
 &"Walk_002": SubResource("Animation_awiua")
 }
 
-[sub_resource type="Resource" id="Resource_3ptgk"]
-script = ExtResource("4_ynxpe")
-metadata/_custom_type_script = "uid://cbd8nk26wor8o"
-
-[sub_resource type="Resource" id="Resource_71eat"]
-script = ExtResource("5_7q7ec")
-metadata/_custom_type_script = "uid://xpa8vyal015t"
-
-[sub_resource type="Resource" id="Resource_ryewx"]
-script = ExtResource("6_lo3r8")
-metadata/_custom_type_script = "uid://d1beao0f5jn0c"
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5iqw4"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5njo"]
 resource_local_to_scene = true
 
 [node name="Player" unique_id=558103743 instance=ExtResource("1_vmllx")]
 script = ExtResource("2_omdve")
-stats_component = SubResource("Resource_rekio")
+stats_component = SubResource("Resource_3y4gi")
 
-[node name="Armature" type="Node3D" parent="." index="0" unique_id=548220542]
+[node name="CameraController" parent="." index="0" unique_id=1815940602 instance=ExtResource("3_bes5w")]
+
+[node name="Armature" type="Node3D" parent="." index="1" unique_id=548220542]
 transform = Transform3D(-0.272, 0, -9.452337e-08, 0, 0.4, 0, 4.1070862e-08, 0, -0.626, 0.00535089, 0.3136379, 0.0103911)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature" index="0" unique_id=176070250]
@@ -353,27 +340,21 @@ bones/16/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_do6bu")
 skin = SubResource("Skin_3ffof")
 
-[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="1" unique_id=1493806770]
+[node name="TransformForCameraController" type="RemoteTransform3D" parent="." index="2" unique_id=1493806770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
 remote_path = NodePath("../CameraController")
 update_rotation = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=669316817]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=669316817]
 libraries/ = SubResource("AnimationLibrary_xvk0j")
 autoplay = &"Walk_002"
 
-[node name="CameraController" parent="." index="3" unique_id=1313310453 instance=ExtResource("3_bes5w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5070994, 0)
-exploration_mode = SubResource("Resource_3ptgk")
-combat_mode = SubResource("Resource_71eat")
-building_mode = SubResource("Resource_ryewx")
-
 [node name="EntityCollider" parent="." index="4" unique_id=205919405]
-shape = SubResource("CapsuleShape3D_5iqw4")
+shape = SubResource("CapsuleShape3D_f5njo")
 
 [node name="ActionComponent" parent="." index="11" unique_id=2011348476]
-primary_action = ExtResource("8_rekio")
-secondary_action = ExtResource("8_e8n4k")
+primary_action = ExtResource("12_rekio")
+secondary_action = ExtResource("10_rekio")
 
 [node name="PlayModeSM" type="Node" parent="." index="12" unique_id=1895750621]
 script = ExtResource("7_hhaut")
