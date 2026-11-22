@@ -6,5 +6,6 @@ class_name Character extends Entity
 
 func _ready() -> void:
 	awareness_component.setup(self)
+	facing_direction_node.setup(shape)
 	action_component.setup(self, facing_direction_node)
 	super()

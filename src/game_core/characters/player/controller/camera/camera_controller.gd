@@ -67,8 +67,3 @@ func _apply_active_values() -> void:
 	camera_boom.spring_length = _active_distance
 	camera_boom.rotation.x = pitch
 	camera_arm.rotation.y = yaw
-	target.facing_direction_node.facing_ray.target_position = get_position_opposite_camera_direction(target.stats_component.attack_range_stat.current_value)
-
-func get_position_opposite_camera_direction(distance: float) -> Vector3:
-	#TODO: FIX THIS
-	return global_position + camera_boom.global_transform.basis.z.normalized() * distance
