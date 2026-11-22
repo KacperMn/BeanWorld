@@ -10,3 +10,6 @@ metadata/_custom_type_script = "uid://jyvenp865rqi"
 
 [node name="AOETargetAttack" unique_id=1814635261 instance=ExtResource("1_qtsg3")]
 effects = Array[ExtResource("2_yalx8")]([SubResource("Resource_f5njo")])
+
+[node name="RangeArea" parent="." index="0" unique_id=451600284]
+radius = 2.0

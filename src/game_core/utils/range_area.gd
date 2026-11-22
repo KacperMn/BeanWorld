@@ -1,7 +1,7 @@
 class_name RangeArea
 extends Area3D
 
-@export var radius: float = 2.0
+@export var radius: float = 1.0
 @export var cone_angle: float = 360.0
 @export var collision_mask_override: int = 1 << 0
 

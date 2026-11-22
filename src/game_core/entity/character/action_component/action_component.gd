@@ -24,6 +24,8 @@ var action_slots: Dictionary[ActionSlotName, ActionSlot] = {}
 func setup(owner_node: Character, facing: Node3D) -> void:
 	var facing_node: Node3D = facing
 
+	global_transform.origin = facing.global_transform.origin
+
 	var slot_scenes: Dictionary[ActionSlotName, PackedScene] = {
 		ActionSlotName.PRIMARY_ACTION: primary_action,
 		ActionSlotName.SECONDARY_ACTION: secondary_action,
