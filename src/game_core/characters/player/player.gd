@@ -5,7 +5,7 @@ class_name Player extends Character
 @onready var player_controller: PlayerController = $PlayerController
 
 func _ready() -> void:
-	player_controller.setup(camera_controller.camera_arm, movement_component, action_component, playmode_sm)
+	player_controller.setup(facing_direction_node, movement_component, action_component, playmode_sm)
 	playmode_sm.setup_sm()
 	setup_camera_controller()
 	super()

@@ -1,9 +1,9 @@
 class_name PlayerController extends Controller
 
-var camera_arm: Node3D
 var movement: MovementComponent
 var action_component: ActionComponent
 var playmode_sm: PlayModeSM
+var facing_direction_node: FacingDirectionNode
 
 const Inputs = {
 	"move_left": "move_left",
@@ -21,8 +21,8 @@ const Inputs = {
 	"ability_4": "ability_4"
 }
 
-func setup(_camera_arm: Node3D, _movement: MovementComponent, _action_component: ActionComponent, _playmode_sm: PlayModeSM) -> void:
-	camera_arm = _camera_arm
+func setup(_facing_direction_node: FacingDirectionNode, _movement: MovementComponent, _action_component: ActionComponent, _playmode_sm: PlayModeSM) -> void:
+	facing_direction_node = _facing_direction_node
 	movement = _movement
 	action_component = _action_component
 	playmode_sm = _playmode_sm
@@ -53,7 +53,7 @@ func process_movement_input() -> void:
 		Inputs.move_forward,
 		Inputs.move_back
 	)
-	var dir := camera_arm.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
+	var dir := facing_direction_node.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
 	dir.y = 0.0
 	movement.set_move_direction(dir.normalized())
 	movement.toggle_sprint(Input.is_action_pressed(Inputs.sprint))

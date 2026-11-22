@@ -61,6 +61,8 @@ func _physics_process(delta: float) -> void:
 	_current_mode.update(delta, self)
 	_apply_active_values()
 	input_direction = Vector2.ZERO
+	target.facing_direction_node.global_rotation.y = camera_arm.global_rotation.y
+	target.facing_direction_node.global_rotation.x = camera_boom.global_rotation.x
 
 func _apply_active_values() -> void:
 	camera.fov = _active_fov
